@@ -63,22 +63,22 @@ class _DetailDzikirState extends State<DetailDzikir> {
                           style: const TextStyle(
                               fontSize: 12.5, fontWeight: FontWeight.bold),
                         )
-                      : const Text(""),
+                      : const Divider(
+                          height: 2.0,
+                        ),
                 ),
               ],
             ),
             widget.keterangan != null
                 ? const Padding(
-                    padding: EdgeInsets.all(12.0),
+                    padding: EdgeInsets.only(left: 12.0, right: 12, top: 12.0),
                     child: Divider(
                       height: 2.0,
                     ),
                   )
-                : const Divider(
-                    height: 2.0,
-                  ),
+                : const Padding(padding: EdgeInsets.all(0.0)),
             Container(
-              margin: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
               child: widget.lafal != null
                   ? Text(
                       widget.lafal.toString(),
@@ -88,10 +88,14 @@ class _DetailDzikirState extends State<DetailDzikir> {
                           const TextStyle(fontSize: 32, fontFamily: 'Utsmani'),
                     )
                   // ignore: avoid_unnecessary_containers
-                  : Text(
-                      widget.arti.toString(),
-                      textAlign: TextAlign.justify,
-                      style: const TextStyle(fontSize: 16),
+                  : Padding(
+                      padding: const EdgeInsets.only(
+                          left: 12, right: 12.0, top: 12.0),
+                      child: Text(
+                        widget.arti.toString(),
+                        textAlign: TextAlign.left,
+                        style: const TextStyle(fontSize: 16),
+                      ),
                     ),
             ),
             widget.transliterasi != null
@@ -107,19 +111,18 @@ class _DetailDzikirState extends State<DetailDzikir> {
                     margin: const EdgeInsets.only(
                         top: 12.0, left: 12.0, right: 12.0),
                   ),
-            Container(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(
-                widget.arti.toString(),
-                textAlign: TextAlign.justify,
-                style: const TextStyle(fontSize: 16
-                    // fontStyle: FontStyle.italic,
+            widget.lafal != null
+                ? Container(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      widget.arti.toString(),
+                      textAlign: TextAlign.left,
+                      style: const TextStyle(fontSize: 16
+                          // fontStyle: FontStyle.italic,
+                          ),
                     ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 20),
-            ),
+                  )
+                : const Text(""),
             widget.footnote != null
                 ? Container(
                     margin: const EdgeInsets.all(12.0),
@@ -129,8 +132,11 @@ class _DetailDzikirState extends State<DetailDzikir> {
                       style: const TextStyle(fontSize: 16),
                     ))
                 : Container(),
-            const Divider(
-              height: 2.0,
+            const Padding(
+              padding: EdgeInsets.only(left: 12.0, right: 12.0),
+              child: Divider(
+                height: 2.0,
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(

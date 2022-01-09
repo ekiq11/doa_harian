@@ -46,13 +46,13 @@ class _DetailDoaState extends State<DetailDoa> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: EdgeInsets.only(left: 12.0, right: 12.0),
               child: Divider(
                 height: 2.0,
               ),
             ),
-            Container(
-              margin: const EdgeInsets.all(12.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
               child: Text(
                 widget.lafal.toString(),
                 textAlign: TextAlign.justify,
@@ -72,28 +72,20 @@ class _DetailDoaState extends State<DetailDoa> {
                   : const Text(""),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20.0, left: 12.0, right: 12.0),
-              child: const Text(
-                "Artinya : ",
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-            Container(
               margin: const EdgeInsets.all(12.0),
               child: Text(
                 widget.arti.toString(),
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.left,
                 style: const TextStyle(fontSize: 16
                     // fontStyle: FontStyle.italic,
                     ),
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(bottom: 20),
-            ),
-            const Divider(
-              height: 2.0,
+              padding: EdgeInsets.only(left: 12, right: 12.0),
+              child: Divider(
+                height: 2.0,
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
