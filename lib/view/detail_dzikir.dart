@@ -86,7 +86,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                       textAlign: TextAlign.justify,
                       textDirection: TextDirection.rtl,
                       style:
-                          const TextStyle(fontSize: 28, fontFamily: 'Utsmani'),
+                          const TextStyle(fontSize: 24, fontFamily: 'Utsmani'),
                     )
                   // ignore: avoid_unnecessary_containers
                   : Padding(

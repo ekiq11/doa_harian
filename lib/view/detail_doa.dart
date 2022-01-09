@@ -58,7 +58,7 @@ class _DetailDoaState extends State<DetailDoa> {
                 widget.lafal.toString(),
                 textAlign: TextAlign.justify,
                 textDirection: TextDirection.rtl,
-                style: const TextStyle(fontSize: 28, fontFamily: 'Utsmani'),
+                style: const TextStyle(fontSize: 24, fontFamily: 'Utsmani'),
               ),
             ),
             Container(

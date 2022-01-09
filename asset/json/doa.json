@@ -341,16 +341,11 @@
     {
       "id_doa": "20",
       "nama": "Doa Ketika Mendengarkan Adzan",
-      "lafal": "",
+      "lafal": "إِذَا سَمِعْتُمُ الْمُؤَذِّنَ فَقُولُوا مِثْلَ مَا يَقُولُ ثُمَّ صَلُّوا عَلَىَّ فَإِنَّهُ مَنْ صَلَّى عَلَىَّ صَلاَةً صَلَّى اللَّهُ عَلَيْهِ بِهَا عَشْرًا ثُمَّ سَلُوا اللَّهَ لِىَ الْوَسِيلَةَ فَإِنَّهَا مَنْزِلَةٌ فِى الْجَنَّةِ لاَ تَنْبَغِى إِلاَّ لِعَبْدٍ مِنْ عِبَادِ اللَّهِ وَأَرْجُو أَنْ أَكُونَ أَنَا هُوَ فَمَنْ سَأَلَ لِىَ الْوَسِيلَةَ حَلَّتْ لَهُ الشَّفَاعَةُ",
       "transliterasi": "",
-      "arti": "",
-      "riwayat": "HR. Al-Bukhari 1/152 dan Muslim 1/288.",
-      "keterangan": [
-        "Seseorang yang mendengarkan adzan, hendaklah mengucapkan sebagaimana yang diucapkan oleh muadzin, kecuali dalam kalimat: Hayya 'alash shalaah dan Hayya 'alal falaah. Maka mengucapkan:",
-        "لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ",
-        "Laa haula wa laa quwwata illaa billaah.",
-        "Tidak ada daya dan kekuatan kecuali dengan pertolongan Allah."
-      ],
+      "arti": "Jika kalian mendengar muadzin, maka ucapkanlah seperti apa yang diucapkan oleh muadzin. Kemudian bershalawatlah untukku. Karena siapa yang bershalawat kepadaku sekali, maka Allah akan bershalawat padanya (memberi ampunan padanya) sebanyak sepuluh kali. Kemudian mintalah wasilah pada Allah untukku. Karena wasilah itu adalah tempat di surga yang hanya diperuntukkan bagi hamba Allah, aku berharap akulah yang mendapatkannya. Siapa yang meminta untukku wasilah seperti itu, dialah yang berhak mendapatkan syafa’atku.",
+      "riwayat": "HR. Muslim no. 384",
+      "keterangan": "Seseorang yang mendengarkan adzan, hendaklah mengucapkan sebagaimana yang diucapkan oleh muadzin",
       "kata_kunci": [
         "doa",
         "ketika",
@@ -368,9 +363,7 @@
       "transliterasi": "Allaahumma robba haadzihid-da'watit-taammah, wash-sholaatil qoo-imah, aati muhammadanil wasiilata wal fadhiilah, wab'ats-hu maqooman mahmuudanil-ladzii wa 'adtah.",
       "arti": "Ya Allah, Tuhan Pemilik panggilan yang sempurna (adzan) ini dan shalat (wajib) yang didirikan. Berilah Al-Wasilah (derajat di Surga, yang tidak akan diberikan selain kepada Nabi) dan fadhilah kepada Muhammad. Dan bangkitkan beliau sehingga bisa menempati maqam terpuji yang telah Engkau janjikan.",
       "riwayat": "HR. Al-Bukhari 1/152.",
-      "keterangan": [
-        "Cara membacanya adalah “…muhammadanil wasiilata…” dan “…mahmuudanil-ladzii…”, yaitu ada tambahan nun wiqoyah (dibaca “ni”)."
-      ],
+      "keterangan": "Cara membacanya adalah “…muhammadanil wasiilata…” dan “…mahmuudanil-ladzii…”, yaitu ada tambahan nun wiqoyah (dibaca “ni”).",
       "kata_kunci": [
         "doa",
         "telah",
@@ -839,24 +832,22 @@
       ]
     },
     {
-      "id_doa": "47",
-      "nama": "Doa Ketika Sakit 1",
-      "lafal": "بِسْمِ اللَّهِ (3×) أَعُوذُ بِاللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ (7×)",
-      "transliterasi": "Bismillaah (3x). A'uudzu billaahi wa qudrotihi min syarri maa ajidu wa uhaadzir (7x).",
-      "arti": "Dengan nama Allah (3x). Aku berlindung kepada Allah dan kekuasaanNya, dari kejahatan sesuatu yang aku jumpai dan aku khawatirkan (7x).",
-      "riwayat": "HR. Muslim 4/1728, Abu Daud, Malik, dll.",
-      "keterangan": [
-        "Doa ini dibaca ketika ada salah satu bagian tubuh kita yang sakit. Caranya: letakkan tangan kita di bagian tubuh yang sakit, pijat pelan-pelan, sambil membaca: (doa di atas)."
-      ],
-      "kata_kunci": [
-        "doa",
+      "id_doa":"47",
+      "nama":"Doa Ketika Sakit 1",
+      "lafal":"بِسْمِ اللَّهِ (3×) أَعُوذُ بِاللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ (7×)",
+      "transliterasi" : "Bismillaah (3x). A'uudzu billaahi wa qudrotihi min syarri maa ajidu wa uhaadzir (7x).",
+      "arti":"Dengan nama Allah (3x). Aku berlindung kepada Allah dan kekuasaanNya, dari kejahatan sesuatu yang aku jumpai dan aku khawatirkan (7x).",
+      "riwayat":"HR. Muslim 4/1728, Abu Daud, Malik, dll.",
+      "keterangan":"Doa ini dibaca ketika ada salah satu bagian tubuh kita yang sakit. Caranya: letakkan tangan kita di bagian tubuh yang sakit, pijat pelan-pelan, sambil membaca: (doa di atas).",
+      "kata_kunci":["doa",
         "ketika",
         "sakit",
         "1",
         "saat",
-        "pas"
-      ]
+        "pas"]
     },
+
+    
     {
       "id_doa": "48",
       "nama": "Doa Ketika Sakit 2",
