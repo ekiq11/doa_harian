@@ -78,14 +78,15 @@ class _DetailDzikirState extends State<DetailDzikir> {
                   )
                 : const Padding(padding: EdgeInsets.all(0.0)),
             Container(
-              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+              padding:
+                  const EdgeInsets.only(left: 12.0, right: 12.0, top: 12.0),
               child: widget.lafal != null
                   ? Text(
                       widget.lafal.toString(),
                       textAlign: TextAlign.justify,
                       textDirection: TextDirection.rtl,
                       style:
-                          const TextStyle(fontSize: 32, fontFamily: 'Utsmani'),
+                          const TextStyle(fontSize: 28, fontFamily: 'Utsmani'),
                     )
                   // ignore: avoid_unnecessary_containers
                   : Padding(
@@ -128,7 +129,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                     margin: const EdgeInsets.all(12.0),
                     child: Text(
                       widget.footnote.toString(),
-                      textAlign: TextAlign.justify,
+                      textAlign: TextAlign.left,
                       style: const TextStyle(fontSize: 16),
                     ))
                 : Container(),

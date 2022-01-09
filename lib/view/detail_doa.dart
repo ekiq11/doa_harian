@@ -52,12 +52,13 @@ class _DetailDoaState extends State<DetailDoa> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+              padding:
+                  const EdgeInsets.only(left: 12.0, right: 12.0, top: 16.0),
               child: Text(
                 widget.lafal.toString(),
                 textAlign: TextAlign.justify,
                 textDirection: TextDirection.rtl,
-                style: const TextStyle(fontSize: 32, fontFamily: 'Utsmani'),
+                style: const TextStyle(fontSize: 28, fontFamily: 'Utsmani'),
               ),
             ),
             Container(
