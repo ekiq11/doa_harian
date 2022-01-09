@@ -75,10 +75,8 @@ class _HomeTabsState extends State<HomeTabs>
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.amber,
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const FilterLocalListPage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SearchDoa()));
         },
         child: const Icon(Icons.search),
       ),

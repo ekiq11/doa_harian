@@ -35,19 +35,6 @@ class _DetailDzikirState extends State<DetailDzikir> {
           style: TextStyle(fontSize: 16),
         ),
         elevation: 0,
-        actions: [
-          Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  Get.changeTheme(
-                      Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
-                },
-                child: Get.isDarkMode
-                    ? const Icon(Icons.light_mode)
-                    : const Icon(Icons.dark_mode),
-              )),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(

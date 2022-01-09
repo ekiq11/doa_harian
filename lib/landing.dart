@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:doa_harian/tab_bar.dart';
-import 'package:doa_harian/view/doa_harian.dart';
-import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
