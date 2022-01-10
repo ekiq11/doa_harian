@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DetailDoa extends StatefulWidget {
   final String? nama;
@@ -92,7 +91,7 @@ class _DetailDoaState extends State<DetailDoa> {
               margin: const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
               child: Text(
                 widget.riwayat.toString(),
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.left,
                 style: const TextStyle(fontSize: 14),
               ),
             ),

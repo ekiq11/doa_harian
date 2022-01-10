@@ -1,7 +1,5 @@
-// ignore_for_file: unnecessary_new
-
-import 'package:doa_harian/view/doa_harian.dart';
-import 'package:doa_harian/view/dzikir_pagi_petang.dart';
+import 'package:doa_harian/view/doa_dzikir/doa_harian.dart';
+import 'package:doa_harian/view/doa_dzikir/dzikir_pagi_petang.dart';
 import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +9,7 @@ class HomeTabs extends StatefulWidget {
   HomeTabs({Key? key}) : super(key: key);
 
   @override
-  _HomeTabsState createState() => new _HomeTabsState();
+  _HomeTabsState createState() => _HomeTabsState();
 }
 
 class _HomeTabsState extends State<HomeTabs>
@@ -19,7 +17,7 @@ class _HomeTabsState extends State<HomeTabs>
   TabController? controller;
 
   _HomeTabsState() {
-    controller = new TabController(length: 2, vsync: this);
+    controller = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -31,7 +29,7 @@ class _HomeTabsState extends State<HomeTabs>
 
     return Scaffold(
       appBar: AppBar(
-        title: new Row(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
             Text(
@@ -82,7 +80,7 @@ class _HomeTabsState extends State<HomeTabs>
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ColorfulSafeArea(
-        child: new TabBarView(
+        child: TabBarView(
           children: const <Widget>[HomePageDoa(), DzikirPagiPetang()],
           controller: controller,
         ),

@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'package:doa_harian/model/model_doa.dart';
 import 'package:doa_harian/service/search_service.dart';
-import 'package:doa_harian/view/detail_doa.dart';
+import 'package:doa_harian/view/doa_dzikir/detail_doa.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'widget_search.dart';
 
 class SearchDoa extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DetailDzikir extends StatefulWidget {
   final String? nama;
@@ -144,7 +143,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                   top: 12.0, left: 12.0, right: 12.0, bottom: 12.0),
               child: Text(
                 widget.riwayat.toString(),
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.left,
                 style: const TextStyle(fontSize: 14),
               ),
             ),

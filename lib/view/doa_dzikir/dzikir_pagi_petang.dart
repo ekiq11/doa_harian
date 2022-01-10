@@ -1,7 +1,6 @@
 import 'package:doa_harian/model/model_dzikir.dart';
 import 'package:doa_harian/service/dzikir_service.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'detail_dzikir.dart';
 
 class DzikirPagiPetang extends StatefulWidget {
