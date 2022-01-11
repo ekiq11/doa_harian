@@ -1,5 +1,6 @@
 import 'package:doa_harian/model/model_doa.dart';
 import 'package:doa_harian/service/doa_service.dart';
+import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';
 
 import 'detail_doa.dart';
@@ -139,11 +140,32 @@ class _HomePageDoaState extends State<HomePageDoa> {
       ),
       floatingActionButton: _showBackToTopButton == false
           ? null
-          : FloatingActionButton(
-              onPressed: _scrollToTop,
-              child: const Icon(Icons.arrow_upward),
-              backgroundColor: Colors.amber,
+          : Padding(
+              padding:
+                  const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  FloatingActionButton(
+                    backgroundColor: Colors.amber,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SearchDoa()));
+                    },
+                    child: const Icon(Icons.search),
+                  ),
+                  FloatingActionButton(
+                    onPressed: _scrollToTop,
+                    child: const Icon(Icons.arrow_upward),
+                    backgroundColor: Colors.amber,
+                  ),
+                ],
+              ),
             ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 

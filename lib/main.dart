@@ -1,27 +1,29 @@
+import 'package:doa_harian/landing.dart';
+import 'package:doa_harian/tab_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'landing.dart';
+void main() => runApp(const MyApp());
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Doa Harian',
+      debugShowCheckedModeBanner: false,
+      home: const LandingPage(),
       theme: ThemeData(
         fontFamily: 'OpenSans',
         primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const LandingPage(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -26,7 +26,7 @@ class _SearchWidgetState extends State<SearchWidget> {
     final style = widget.text.isEmpty ? styleHint : styleActive;
 
     return Container(
-      height: 42,
+      height: 50,
       margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -35,20 +35,11 @@ class _SearchWidgetState extends State<SearchWidget> {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 18),
       child: TextField(
+        autofocus: false,
+        autocorrect: false,
         controller: controller,
         decoration: InputDecoration(
           icon: Icon(Icons.search, color: style.color),
-          suffixIcon: widget.text.isNotEmpty
-              ? GestureDetector(
-                  child: Icon(Icons.close, color: style.color),
-                  onTap: () {
-                    setState(() {});
-                    controller.clear();
-                    widget.onChanged;
-                    FocusScope.of(context).requestFocus(FocusNode());
-                  },
-                )
-              : null,
           hintText: widget.hintText,
           hintStyle: style,
           border: InputBorder.none,

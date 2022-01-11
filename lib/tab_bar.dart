@@ -1,5 +1,5 @@
-import 'package:doa_harian/view/doa_dzikir/doa_harian.dart';
 import 'package:doa_harian/view/doa_dzikir/dzikir_pagi_petang.dart';
+import 'package:doa_harian/view/quran/home_screen.dart';
 import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -70,18 +70,27 @@ class _HomeTabsState extends State<HomeTabs>
           controller: controller,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.amber,
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SearchDoa()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HomeScreen()));
         },
-        child: const Icon(Icons.search),
+        label: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Icon(Icons.menu_book_sharp),
+            Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Text("Al-Qur'an"),
+            ),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ColorfulSafeArea(
         child: TabBarView(
-          children: const <Widget>[HomePageDoa(), DzikirPagiPetang()],
+          children: const <Widget>[SearchDoa(), DzikirPagiPetang()],
           controller: controller,
         ),
       ),

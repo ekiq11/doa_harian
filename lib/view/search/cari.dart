@@ -16,12 +16,22 @@ class _SearchDoaState extends State<SearchDoa> {
   List<Doa>? data = [];
   String query = '';
   Timer? debouncer;
-
+  final ScrollController _scrollController = ScrollController();
+  bool _showBackToTopButton = false;
   @override
   void initState() {
     super.initState();
 
     init();
+    _scrollController.addListener(() {
+      setState(() {
+        if (_scrollController.offset >= 400) {
+          _showBackToTopButton = true; // show the back-to-top button
+        } else {
+          _showBackToTopButton = false; // hide the back-to-top button
+        }
+      });
+    });
   }
 
   @override
@@ -50,15 +60,12 @@ class _SearchDoaState extends State<SearchDoa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Back"),
-        elevation: 0,
-      ),
       body: Column(
         children: <Widget>[
           buildSearch(),
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               itemCount: data!.length,
               itemBuilder: (context, index) {
                 final dataDoa = data![index];
@@ -67,7 +74,7 @@ class _SearchDoaState extends State<SearchDoa> {
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => DetailDoa(
@@ -136,7 +143,19 @@ class _SearchDoaState extends State<SearchDoa> {
           )
         ],
       ),
+      floatingActionButton: _showBackToTopButton == false
+          ? null
+          : FloatingActionButton(
+              onPressed: _scrollToTop,
+              child: const Icon(Icons.arrow_upward),
+              backgroundColor: Colors.amber,
+            ),
     );
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 1), curve: Curves.linear);
   }
 
   Widget buildSearch() => SearchWidget(
