@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             _listTemp[index].arabic.toString(),
                             style: const TextStyle(
-                                fontFamily: "Utsmani", fontSize: 18.0),
+                                fontFamily: "Utsmani", fontSize: 24.0),
                           ),
                           Text(
                             '${_listTemp[index].totalAyah} Ayat',

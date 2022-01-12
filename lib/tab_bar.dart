@@ -1,5 +1,4 @@
 import 'package:doa_harian/view/doa_dzikir/dzikir.dart';
-import 'package:doa_harian/view/doa_dzikir/dzikir_pagi_petang.dart';
 import 'package:doa_harian/view/quran/home_screen.dart';
 import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';

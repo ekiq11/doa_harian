@@ -122,8 +122,9 @@ class _DetailScreenState extends State<DetailScreen> {
                             child: Text(
                               '${widget.surah!.arabic}',
                               style: const TextStyle(
-                                fontFamily: 'Suls',
+                                fontFamily: 'Utsmani',
                                 fontSize: 28.0,
+                                fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -157,7 +158,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ? Container(
                                   margin:
                                       const EdgeInsets.symmetric(vertical: 10),
-                                  height: 40,
+                                  height: 35,
                                   child: Image.asset(BaseImage.bismillah,
                                       color: Colors.white),
                                 )
@@ -243,7 +244,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                       textAlign: TextAlign.justify,
                                       textDirection: TextDirection.rtl,
                                       style: const TextStyle(
-                                        fontSize: 22,
+                                        fontSize: 24,
                                         fontFamily: "Utsmani",
                                         fontWeight: FontWeight.w500,
                                       ),
