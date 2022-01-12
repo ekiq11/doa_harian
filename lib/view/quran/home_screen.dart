@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Container(
                           width: 40,
                           height: 40,
-                          margin: const EdgeInsets.only(right: 12),
+                          margin: const EdgeInsets.only(right: 8),
                           child: Stack(
                             children: [
                               SizedBox(
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 12.0),
+                          padding: const EdgeInsets.only(left: 8.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -163,11 +163,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       textDirection: TextDirection.rtl,
                       child: Column(
                         children: [
-                          Text(_listTemp[index].arabic.toString(),
-                              style: const TextStyle(
-                                  fontFamily: "Suls",
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w600)),
+                          Text(
+                            _listTemp[index].arabic.toString(),
+                            style: const TextStyle(
+                                fontFamily: "Utsmani", fontSize: 18.0),
+                          ),
                           Text(
                             '${_listTemp[index].totalAyah} Ayat',
                             style: const TextStyle(
