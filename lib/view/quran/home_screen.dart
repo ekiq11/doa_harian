@@ -131,25 +131,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                          padding: const EdgeInsets.only(left: 4.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10.0),
-                                child: Text('Surat ${_listTemp[index].latin}',
-                                    style: const TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600)),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10.0),
-                                child: Text(
-                                  _listTemp[index].name.toString(),
+                              Text('Surat ${_listTemp[index].latin}',
                                   style: const TextStyle(
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.normal),
-                                ),
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600)),
+                              Text(
+                                _listTemp[index].name.toString(),
+                                style: const TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.normal),
                               ),
                             ],
                           ),
