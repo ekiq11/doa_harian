@@ -1,3 +1,4 @@
+import 'package:doa_harian/view/doa_dzikir/dzikir.dart';
 import 'package:doa_harian/view/doa_dzikir/dzikir_pagi_petang.dart';
 import 'package:doa_harian/view/quran/home_screen.dart';
 import 'package:doa_harian/view/search/cari.dart';
@@ -62,7 +63,7 @@ class _HomeTabsState extends State<HomeTabs>
             ),
             Tab(
               child: Text(
-                "Dzikir Pagi-Sore",
+                "Dzikir",
                 style: TextStyle(fontSize: 16.0),
               ),
             ),
@@ -73,7 +74,7 @@ class _HomeTabsState extends State<HomeTabs>
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.amber,
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => HomeScreen()));
         },
         label: Row(
@@ -90,7 +91,7 @@ class _HomeTabsState extends State<HomeTabs>
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ColorfulSafeArea(
         child: TabBarView(
-          children: const <Widget>[SearchDoa(), DzikirPagiPetang()],
+          children: const <Widget>[SearchDoa(), Dzikir()],
           controller: controller,
         ),
       ),

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:doa_harian/model/asset.dart';
 import 'package:doa_harian/model/surah.dart';
 import 'package:doa_harian/view/quran/detail_screen.dart';
 import 'package:flutter/material.dart';
@@ -104,10 +105,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Row(
                       children: [
-                        Center(
-                          child: Text('${_listTemp[index].number}',
-                              style: const TextStyle(
-                                  fontSize: 16.0, fontWeight: FontWeight.w500)),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 12),
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                width: 40,
+                                height: 40,
+                                child: Image.asset(
+                                  BaseImage.numbering,
+                                ),
+                              ),
+                              Center(
+                                child: Text(
+                                  "${_listTemp[index].number}",
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0),
@@ -144,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(_listTemp[index].arabic.toString(),
                               style: const TextStyle(
-                                  fontFamily: "Utsmani", fontSize: 18.0)),
+                                  fontFamily: "Suls", fontSize: 20.0)),
                           Text(
                             '${_listTemp[index].totalAyah} Ayat',
                             style: const TextStyle(
@@ -239,12 +260,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    '${_percentage.round()}%',
-                    style: const TextStyle(fontSize: 35),
+                children: const [
+                  CircularProgressIndicator(
+                    strokeWidth: 10,
+                    // child: Text(
+                    //   '${_percentage.round()}%',
+                    //   style: const TextStyle(fontSize: 35),
+                    // ),
                   ),
-                  const Text('Mohon tunggu sebentar...'),
                 ],
               ),
             )
@@ -252,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.amber,
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => HomeTabs()));
         },
         label: Row(

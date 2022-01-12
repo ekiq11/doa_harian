@@ -27,7 +27,10 @@ class _DetailDoaState extends State<DetailDoa> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Back"),
+        title: const Text(
+          "Back",
+          style: TextStyle(fontSize: 16.0),
+        ),
         elevation: 0,
       ),
       body: SingleChildScrollView(

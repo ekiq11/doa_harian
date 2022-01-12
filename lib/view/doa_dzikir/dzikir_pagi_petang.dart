@@ -58,6 +58,18 @@ class _DzikirPagiPetangState extends State<DzikirPagiPetang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: const [
+            Text(
+              "Dzikir Pagi dan Sore",
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: ListView.builder(
           controller: _scrollController,

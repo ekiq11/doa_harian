@@ -64,8 +64,9 @@ flutter:
   assets:
     - asset/json/doa.json
     - asset/json/dzikir.json
+    - asset/json/dzikir_setelah_sholat.json
     - asset/doa.png
-    - asset/logo.png
+    - asset/other/
     - asset/quran-json/surah/
 
   # An image asset can refer to one or more resolution-specific "variants", see

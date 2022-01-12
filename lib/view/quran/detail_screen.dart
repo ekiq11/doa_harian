@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:doa_harian/model/asset.dart';
 import 'package:doa_harian/model/ayah.dart';
 import 'package:doa_harian/model/surah.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,8 @@ class _DetailScreenState extends State<DetailScreen> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             insetPadding: const EdgeInsets.all(10),
-            title: Text('Tafsir : ' + '${widget.surah!.latin} : ${index + 1}',
+            title: Text(
+                'Tafsir Kemenag - ' + '${widget.surah!.latin} : ${index + 1}',
                 style: const TextStyle(
                     fontSize: 16.0, fontWeight: FontWeight.w500)),
             content: SingleChildScrollView(
@@ -104,119 +106,131 @@ class _DetailScreenState extends State<DetailScreen> {
                   ? CrossAxisAlignment.start
                   : CrossAxisAlignment.center),
           children: [
-            Text('${widget.surah!.latin} (${widget.surah!.arabic})',
-                style: const TextStyle(fontSize: 18.0, fontFamily: 'Utsmani')),
-            Text(
-              '${widget.surah!.name} | ${widget.surah!.totalAyah} Ayat',
-              style: const TextStyle(
-                fontSize: 14,
+            Center(
+              child: Text(
+                '${widget.surah!.arabic}',
+                style: const TextStyle(fontSize: 22.0, fontFamily: 'Utsmani'),
+              ),
+            ),
+            Center(
+              child: Text(
+                '${widget.surah!.totalAyah} Ayat',
+                style: const TextStyle(
+                  fontSize: 12,
+                ),
               ),
             ),
           ],
         ),
       ),
-      body: _loading
-          ? const Center(
-              child: Text('Sedang memuat konten...'),
-            )
-          : ListView.builder(
-              itemCount: widget.surah!.totalAyah,
-              itemBuilder: (BuildContext ctx, int index) {
-                return Column(
+      body: ListView.builder(
+        itemCount: widget.surah!.totalAyah,
+        itemBuilder: (BuildContext ctx, int index) {
+          return Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  showTafsir(context, index);
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        showTafsir(context, index);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 4.0, vertical: 6.0),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 12.0, left: 10.0),
-                                  child: Text(
-                                    '${index + 1}.',
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12.0, right: 6.0, bottom: 6.0),
-                                    child: Directionality(
-                                      textDirection: TextDirection.rtl,
-                                      child: Text(
-                                        _listAyah[index].arabic.toString(),
-                                        textAlign: TextAlign.start,
-                                        style: const TextStyle(
-                                            fontSize: 24,
-                                            fontFamily: "Utsmani"),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12, bottom: 6.0),
-                                    child: Text(
-                                      _listAyah[index].indonesia.toString(),
-                                      textAlign: TextAlign.start,
-                                      style: const TextStyle(fontSize: 16.0),
-                                    ),
-                                  )
-                                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        margin: const EdgeInsets.only(right: 12),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 40,
+                              height: 40,
+                              child: Image.asset(
+                                BaseImage.numbering,
                               ),
                             ),
-                          ),
-                        ],
+                            Center(
+                              child: Text(
+                                "${index + 1}",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                      child: Divider(
-                        height: 2.0,
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 12.0, right: 6.0, bottom: 6.0),
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Text(
+                                  _listAyah[index].arabic.toString(),
+                                  textAlign: TextAlign.start,
+                                  style: const TextStyle(
+                                    fontSize: 24,
+                                    fontFamily: "Utsmani",
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 12, bottom: 6.0),
+                              child: Text(
+                                _listAyah[index].indonesia.toString(),
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(fontSize: 16.0),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
-                );
-                // return ListTile(
-                //   leading: Text(
-                //     '${index + 1}.',
-                //     style: TextStyle(fontSize: 18),
-                //   ),
-                //   title: Directionality(
-                //     textDirection: TextDirection.rtl,
-                //     child: Text(
-                //       _listAyah[index].arabic,
-                //       style: TextStyle(fontSize: 24, fontFamily: "LPMQ"),
-                //     ),
-                //   ),
-                //   subtitle: Padding(
-                //       padding: EdgeInsets.only(top: 10),
-                //       child: Text(_listAyah[index].indonesia)),
-                //   onTap: () {
-                //     this.showTafsir(context, index);
-                //   },
-                // );
-              },
-            ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                child: Divider(
+                  height: 2.0,
+                ),
+              ),
+            ],
+          );
+          // return ListTile(
+          //   leading: Text(
+          //     '${index + 1}.',
+          //     style: TextStyle(fontSize: 18),
+          //   ),
+          //   title: Directionality(
+          //     textDirection: TextDirection.rtl,
+          //     child: Text(
+          //       _listAyah[index].arabic,
+          //       style: TextStyle(fontSize: 24, fontFamily: "LPMQ"),
+          //     ),
+          //   ),
+          //   subtitle: Padding(
+          //       padding: EdgeInsets.only(top: 10),
+          //       child: Text(_listAyah[index].indonesia)),
+          //   onTap: () {
+          //     this.showTafsir(context, index);
+          //   },
+          // );
+        },
+      ),
     );
   }
 }
