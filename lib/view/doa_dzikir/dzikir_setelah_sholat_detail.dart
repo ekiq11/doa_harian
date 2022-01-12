@@ -62,7 +62,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                             widget.keterangan.toString(),
                             textAlign: TextAlign.left,
                             style: const TextStyle(
-                                fontSize: 12.5, fontWeight: FontWeight.bold),
+                                fontSize: 14.5, fontWeight: FontWeight.bold),
                           )
                         : const Divider(
                             height: 2.0,
@@ -97,7 +97,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                         child: Text(
                           widget.arti.toString(),
                           textAlign: TextAlign.left,
-                          style: const TextStyle(fontSize: 14),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
               ),
@@ -108,7 +108,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                         widget.transliterasi.toString(),
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontSize: 14, fontStyle: FontStyle.italic),
+                            fontSize: 16, fontStyle: FontStyle.italic),
                       ))
                   : Container(
                       margin: const EdgeInsets.only(
@@ -147,7 +147,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                 child: Text(
                   widget.riwayat.toString(),
                   textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ),
             ],
