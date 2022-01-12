@@ -109,73 +109,71 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
                 elevation: 0,
                 pinned: true,
-                expandedHeight: 320,
+                expandedHeight: 340,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SizedBox(
-                            height: 40,
+                  background: Padding(
+                    padding: const EdgeInsets.only(top: 32.0),
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
                             child: Text('${widget.surah!.arabic}',
                                 style: const TextStyle(
-                                    fontFamily: 'Suls', fontSize: 24.0))),
-                        Container(
-                          margin: const EdgeInsets.only(top: 12),
-                          child: Text(
+                                    fontFamily: 'Suls', fontSize: 24.0)),
+                          ),
+                          Text(
                             '${widget.surah!.latin}',
                             style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 8),
-                          child: Text(
+                          Text(
                             '${widget.surah!.totalAyah} Ayat',
                             style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w300,
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(
-                            top: 16,
-                            bottom: 12,
+                          Container(
+                            margin: const EdgeInsets.only(
+                              top: 16,
+                              bottom: 12,
+                            ),
+                            child: Divider(
+                              endIndent: Get.width / 12,
+                              indent: Get.width / 12,
+                              height: 2,
+                            ),
                           ),
-                          child: Divider(
-                            endIndent: Get.width / 12,
-                            indent: Get.width / 12,
-                            height: 2,
-                          ),
-                        ),
-                        Get.isDarkMode
-                            ? Container(
-                                margin:
-                                    const EdgeInsets.symmetric(vertical: 10),
-                                height: 42,
-                                child: Image.asset(BaseImage.bismillah,
-                                    color: Colors.white),
-                              )
-                            : Container(
-                                margin:
-                                    const EdgeInsets.symmetric(vertical: 10),
-                                height: 42,
-                                child: Image.asset(BaseImage.bismillah,
-                                    color: Colors.black87),
-                              ),
-                        const Padding(
-                          padding: EdgeInsets.only(
-                              left: 24.0, right: 24.0, top: 12.0),
-                          child: Text(
-                            "Dengan menyebut nama Allah yang maha pengasih lagi maha penyayang",
-                            style: TextStyle(fontSize: 14),
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
+                          Get.isDarkMode
+                              ? Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  height: 40,
+                                  child: Image.asset(BaseImage.bismillah,
+                                      color: Colors.white),
+                                )
+                              : Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  height: 40,
+                                  child: Image.asset(BaseImage.bismillah,
+                                      color: Colors.black87),
+                                ),
+                          const Padding(
+                            padding: EdgeInsets.only(
+                                left: 28.0, right: 28.0, top: 12.0),
+                            child: Text(
+                              "Dengan menyebut nama Allah yang maha pengasih lagi maha penyayang",
+                              style: TextStyle(fontSize: 14),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -192,10 +190,10 @@ class _DetailScreenState extends State<DetailScreen> {
                       showTafsir(context, index);
                     },
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                          padding: const EdgeInsets.only(top: 18.0, left: 8.0),
                           child: Container(
                             width: 40,
                             height: 40,
