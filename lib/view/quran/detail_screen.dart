@@ -118,13 +118,14 @@ class _DetailScreenState extends State<DetailScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Text(
                               '${widget.surah!.arabic}',
                               style: const TextStyle(
-                                  fontFamily: 'Suls',
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.w600),
+                                fontFamily: 'Suls',
+                                fontSize: 28.0,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                           Text(
