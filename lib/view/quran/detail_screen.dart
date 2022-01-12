@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:doa_harian/model/asset.dart';
 import 'package:doa_harian/model/ayah.dart';
 import 'package:doa_harian/model/surah.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:clipboard/clipboard.dart';
 import 'package:get/get.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -17,12 +15,10 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  bool _loading = false;
   List<Ayah> _listAyah = [];
 
   void mapAyah() {
     setState(() {
-      _loading = true;
       _listAyah.clear();
     });
 
@@ -37,7 +33,6 @@ class _DetailScreenState extends State<DetailScreen> {
     }
 
     setState(() {
-      _loading = false;
       _listAyah = temp;
     });
   }
@@ -89,7 +84,6 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
     super.initState();
-
     mapAyah();
   }
 
@@ -191,7 +185,23 @@ class _DetailScreenState extends State<DetailScreen> {
             itemBuilder: (BuildContext ctx, int index) {
               return Column(
                 children: [
-                  GestureDetector(
+                  InkWell(
+                    onLongPress: () {
+                      // ignore: prefer_const_declarations
+                      final snackBar = const SnackBar(
+                        content: Text('Berhasil di copy'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      FlutterClipboard.copy('Allah berfirman : ' +
+                              '\n\n' +
+                              _listAyah[index].arabic.toString() +
+                              "\n" +
+                              _listAyah[index].indonesia.toString() +
+                              '\n\n' +
+                              'QS: ${widget.surah!.latin} : ' +
+                              '${index + 1}')
+                          .then((value) => print('copied'));
+                    },
                     onTap: () {
                       showTafsir(context, index);
                     },

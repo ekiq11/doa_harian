@@ -17,24 +17,14 @@ class _HomePageDoaState extends State<HomePageDoa> {
   final ScrollController _scrollController = ScrollController();
   bool _showBackToTopButton = false;
 
-  _getData() {
+  @override
+  void initState() {
+    super.initState();
     DoaServices.readFile().then((data) {
       setState(() {
         _dataDoa = data;
       });
     });
-  }
-
-  _loading() {
-    for (int i = 0; i < 2; i++) {
-      _getData();
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _loading();
     _scrollController.addListener(() {
       setState(() {
         if (_scrollController.offset >= 400) {
@@ -43,11 +33,6 @@ class _HomePageDoaState extends State<HomePageDoa> {
           _showBackToTopButton = false; // hide the back-to-top button
         }
       });
-      print(_scrollController.position.pixels);
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        _loading;
-      }
     });
   }
 
