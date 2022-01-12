@@ -119,9 +119,13 @@ class _DetailScreenState extends State<DetailScreen> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Text('${widget.surah!.arabic}',
-                                style: const TextStyle(
-                                    fontFamily: 'Suls', fontSize: 24.0)),
+                            child: Text(
+                              '${widget.surah!.arabic}',
+                              style: const TextStyle(
+                                  fontFamily: 'Suls',
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w600),
+                            ),
                           ),
                           Text(
                             '${widget.surah!.latin}',
@@ -230,22 +234,24 @@ class _DetailScreenState extends State<DetailScreen> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 12.0, right: 6.0, bottom: 6.0),
+                                      top: 12.0, right: 8.0, bottom: 6.0),
                                   child: Directionality(
                                     textDirection: TextDirection.rtl,
                                     child: Text(
                                       _listAyah[index].arabic.toString(),
-                                      textAlign: TextAlign.start,
+                                      textAlign: TextAlign.justify,
+                                      textDirection: TextDirection.rtl,
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontFamily: "Utsmani",
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 12, bottom: 6.0),
+                                      top: 12, bottom: 6.0, right: 8.0),
                                   child: Text(
                                     _listAyah[index].indonesia.toString(),
                                     textAlign: TextAlign.start,

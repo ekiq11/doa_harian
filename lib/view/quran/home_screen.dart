@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Text('Surat ${_listTemp[index].latin}',
                                     style: const TextStyle(
                                         fontSize: 16.0,
-                                        fontWeight: FontWeight.w500)),
+                                        fontWeight: FontWeight.w600)),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 10.0),
@@ -165,7 +165,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(_listTemp[index].arabic.toString(),
                               style: const TextStyle(
-                                  fontFamily: "Suls", fontSize: 20.0)),
+                                  fontFamily: "Suls",
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w600)),
                           Text(
                             '${_listTemp[index].totalAyah} Ayat',
                             style: const TextStyle(
@@ -191,42 +193,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-
-  // Future<void> showAbout(context) async {
-  //   var packageInfo = await PackageInfo.fromPlatform();
-
-  //   return showDialog(
-  //       context: context,
-  //       barrierDismissible: true,
-  //       builder: (BuildContext context) {
-  //         return AlertDialog(
-  //           title: const Text('Quran ID'),
-  //           content: SingleChildScrollView(
-  //             child: ListBody(
-  //               children: [
-  //                 const Text('Developed by: Thony Hermawan'),
-  //                 const Text('\n'),
-  //                 const Text(
-  //                     'Application source available on Github: https://github.com/caktoy/flutter-quran'),
-  //                 const Text('\n'),
-  //                 const Text(
-  //                     'Qur\'an source: https://github.com/rioastamal/quran-json'),
-  //                 const Text('\n'),
-  //                 Text(
-  //                   'Version: ${packageInfo.version}',
-  //                   style: const TextStyle(fontSize: 12.0),
-  //                 ),
-  //               ],
-  //             ),
-  //           ),
-  //           actions: [
-  //             TextButton(
-  //                 onPressed: () => Navigator.of(context).pop(),
-  //                 child: const Text('Tutup'))
-  //           ],
-  //         );
-  //       });
-  // }
 
   @override
   void initState() {
