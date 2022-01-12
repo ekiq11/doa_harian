@@ -237,59 +237,61 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 70,
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
-              "سنة",
-              style: TextStyle(fontFamily: 'Suls', fontSize: 28),
-            ),
-            Text(
-              "القرآن",
-              style: TextStyle(fontFamily: 'Utsmani', fontSize: 24),
-            ),
-          ],
-        ),
-      ),
-      body: _loading
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  CircularProgressIndicator(
-                    strokeWidth: 10,
-                    // child: Text(
-                    //   '${_percentage.round()}%',
-                    //   style: const TextStyle(fontSize: 35),
-                    // ),
-                  ),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 70,
+          elevation: 0,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text(
+                "سنة",
+                style: TextStyle(fontFamily: 'Suls', fontSize: 28),
               ),
-            )
-          : renderBody(),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Colors.amber,
-        onPressed: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomeTabs()));
-        },
-        label: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Icon(Icons.menu_book_sharp),
-            Padding(
-              padding: EdgeInsets.only(left: 12.0),
-              child: Text("Doa dan Dzikir"),
-            ),
-          ],
+              Text(
+                "القرآن",
+                style: TextStyle(fontFamily: 'Utsmani', fontSize: 24),
+              ),
+            ],
+          ),
         ),
+        body: _loading
+            ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    CircularProgressIndicator(
+                      strokeWidth: 10,
+                      // child: Text(
+                      //   '${_percentage.round()}%',
+                      //   style: const TextStyle(fontSize: 35),
+                      // ),
+                    ),
+                  ],
+                ),
+              )
+            : renderBody(),
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Colors.amber,
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomeTabs()));
+          },
+          label: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Icon(Icons.menu_book_sharp),
+              Padding(
+                padding: EdgeInsets.only(left: 12.0),
+                child: Text("Doa dan Dzikir"),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

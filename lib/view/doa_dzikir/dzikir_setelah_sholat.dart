@@ -57,111 +57,116 @@ class _DzikirSetelahSholatState extends State<DzikirSetelahSholat> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Text(
-              "Dzikir Setelah Sholat",
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Text(
+                "Dzikir Setelah Sholat",
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
         ),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            ListView.builder(
-              controller: _scrollController,
-              itemCount: _dataDzikir.isNotEmpty ? _dataDzikir.length : 0,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, snapshot) {
-                if (snapshot != null) {
-                  return Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetailDzikir(
-                                  nama: _dataDzikir[snapshot].nama,
-                                  lafal: _dataDzikir[snapshot].lafal,
-                                  transliterasi:
-                                      _dataDzikir[snapshot].transliterasi,
-                                  arti: _dataDzikir[snapshot].arti,
-                                  riwayat: _dataDzikir[snapshot].riwayat,
-                                  keterangan: _dataDzikir[snapshot].keterangan,
-                                  footnote: _dataDzikir[snapshot].footnote),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.only(bottom: 16),
-                          padding: const EdgeInsets.only(
-                              top: 16, left: 16, right: 16),
-                          child: Row(
-                            children: <Widget>[
-                              Text(
-                                _dataDzikir[snapshot].idDzikir.toString(),
-                                style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+        body: Center(
+          child: Column(
+            children: [
+              ListView.builder(
+                controller: _scrollController,
+                itemCount: _dataDzikir.isNotEmpty ? _dataDzikir.length : 0,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, snapshot) {
+                  if (snapshot != null) {
+                    return Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailDzikir(
+                                    nama: _dataDzikir[snapshot].nama,
+                                    lafal: _dataDzikir[snapshot].lafal,
+                                    transliterasi:
+                                        _dataDzikir[snapshot].transliterasi,
+                                    arti: _dataDzikir[snapshot].arti,
+                                    riwayat: _dataDzikir[snapshot].riwayat,
+                                    keterangan:
+                                        _dataDzikir[snapshot].keterangan,
+                                    footnote: _dataDzikir[snapshot].footnote),
                               ),
-                              const SizedBox(
-                                width: 30,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 8.5),
-                                      child: Text(
-                                        _dataDzikir[snapshot].nama.toString(),
-                                        style: const TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                  ],
+                            );
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 16),
+                            padding: const EdgeInsets.only(
+                                top: 16, left: 16, right: 16),
+                            child: Row(
+                              children: <Widget>[
+                                Text(
+                                  _dataDzikir[snapshot].idDzikir.toString(),
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.grey.shade500,
-                                size: 16,
-                              ),
-                            ],
+                                const SizedBox(
+                                  width: 30,
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 8.5),
+                                        child: Text(
+                                          _dataDzikir[snapshot].nama.toString(),
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.grey.shade500,
+                                  size: 16,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const Divider(
-                        height: 2.0,
-                      ),
-                    ],
-                  );
-                } else {
-                  return const Center(child: CircularProgressIndicator());
-                }
-              },
-            ),
-          ],
+                        const Divider(
+                          height: 2.0,
+                        ),
+                      ],
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                },
+              ),
+            ],
+          ),
         ),
+        floatingActionButton: _showBackToTopButton == false
+            ? null
+            : FloatingActionButton(
+                onPressed: _scrollToTop,
+                child: const Icon(Icons.arrow_upward),
+                backgroundColor: Colors.amber,
+              ),
       ),
-      floatingActionButton: _showBackToTopButton == false
-          ? null
-          : FloatingActionButton(
-              onPressed: _scrollToTop,
-              child: const Icon(Icons.arrow_upward),
-              backgroundColor: Colors.amber,
-            ),
     );
   }
 

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.doa_harian">
    <application
-        android:label="Doa Harian"
+        android:label="Bekal Sunnah"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

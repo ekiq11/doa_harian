@@ -28,71 +28,73 @@ class _HomeTabsState extends State<HomeTabs>
       controller = TabController(length: 2, vsync: this);
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Text(
-              "سنة",
-              style: TextStyle(fontFamily: 'Suls', fontSize: 34),
-            ),
-          ],
-        ),
-        elevation: 0,
-        actions: [
-          Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  Get.changeTheme(
-                      Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
-                },
-                child: Get.isDarkMode
-                    ? const Icon(Icons.light_mode)
-                    : const Icon(Icons.dark_mode),
-              )),
-        ],
-        bottom: TabBar(
-          tabs: const <Tab>[
-            Tab(
-              child: Text(
-                "Doa Harian",
-                style: TextStyle(fontSize: 16.0),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Text(
+                "سنة",
+                style: TextStyle(fontFamily: 'Suls', fontSize: 34),
               ),
-            ),
-            Tab(
-              child: Text(
-                "Dzikir",
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ),
-          ],
-          controller: controller,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Colors.amber,
-        onPressed: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomeScreen()));
-        },
-        label: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Icon(Icons.menu_book_sharp),
+            ],
+          ),
+          elevation: 0,
+          actions: [
             Padding(
-              padding: EdgeInsets.only(left: 12.0),
-              child: Text("Al-Qur'an"),
-            ),
+                padding: const EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Get.changeTheme(
+                        Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+                  },
+                  child: Get.isDarkMode
+                      ? const Icon(Icons.light_mode)
+                      : const Icon(Icons.dark_mode),
+                )),
           ],
+          bottom: TabBar(
+            tabs: const <Tab>[
+              Tab(
+                child: Text(
+                  "Doa Harian",
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  "Dzikir",
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+            ],
+            controller: controller,
+          ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: ColorfulSafeArea(
-        child: TabBarView(
-          children: const <Widget>[SearchDoa(), Dzikir()],
-          controller: controller,
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Colors.amber,
+          onPressed: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
+          label: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Icon(Icons.menu_book_sharp),
+              Padding(
+                padding: EdgeInsets.only(left: 12.0),
+                child: Text("Al-Qur'an"),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        body: ColorfulSafeArea(
+          child: TabBarView(
+            children: const <Widget>[SearchDoa(), Dzikir()],
+            controller: controller,
+          ),
         ),
       ),
     );
