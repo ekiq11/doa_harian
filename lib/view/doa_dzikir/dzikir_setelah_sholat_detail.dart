@@ -88,7 +88,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                         textAlign: TextAlign.justify,
                         textDirection: TextDirection.rtl,
                         style: const TextStyle(
-                            fontSize: 24, fontFamily: 'Utsmani'),
+                            fontSize: 22, fontFamily: 'Utsmani'),
                       )
                     // ignore: avoid_unnecessary_containers
                     : Padding(
@@ -97,7 +97,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                         child: Text(
                           widget.arti.toString(),
                           textAlign: TextAlign.left,
-                          style: const TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 14),
                         ),
                       ),
               ),
@@ -108,7 +108,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                         widget.transliterasi.toString(),
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontSize: 16, fontStyle: FontStyle.italic),
+                            fontSize: 14, fontStyle: FontStyle.italic),
                       ))
                   : Container(
                       margin: const EdgeInsets.only(
@@ -147,7 +147,7 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
                 child: Text(
                   widget.riwayat.toString(),
                   textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 12),
                 ),
               ),
             ],

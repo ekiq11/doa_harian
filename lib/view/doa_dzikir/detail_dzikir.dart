@@ -87,7 +87,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                         textAlign: TextAlign.justify,
                         textDirection: TextDirection.rtl,
                         style: const TextStyle(
-                            fontSize: 24, fontFamily: 'Utsmani'),
+                            fontSize: 22, fontFamily: 'Utsmani'),
                       )
                     // ignore: avoid_unnecessary_containers
                     : Padding(
@@ -96,7 +96,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                         child: Text(
                           widget.arti.toString(),
                           textAlign: TextAlign.left,
-                          style: const TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 14),
                         ),
                       ),
               ),
@@ -107,7 +107,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                         widget.transliterasi.toString(),
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontSize: 16, fontStyle: FontStyle.italic),
+                            fontSize: 14, fontStyle: FontStyle.italic),
                       ))
                   : Container(
                       margin: const EdgeInsets.only(
@@ -119,7 +119,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                       child: Text(
                         widget.arti.toString(),
                         textAlign: TextAlign.left,
-                        style: const TextStyle(fontSize: 16
+                        style: const TextStyle(fontSize: 14
                             // fontStyle: FontStyle.italic,
                             ),
                       ),
@@ -131,7 +131,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                       child: Text(
                         widget.footnote.toString(),
                         textAlign: TextAlign.left,
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 14),
                       ))
                   : Container(),
               const Padding(
@@ -146,7 +146,7 @@ class _DetailDzikirState extends State<DetailDzikir> {
                 child: Text(
                   widget.riwayat.toString(),
                   textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 12),
                 ),
               ),
             ],

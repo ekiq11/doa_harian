@@ -87,15 +87,15 @@ class _HomePageDoaState extends State<HomePageDoa> {
                         );
                       },
                       child: Container(
-                        margin: const EdgeInsets.only(bottom: 16),
+                        margin: const EdgeInsets.only(bottom: 12),
                         padding:
-                            const EdgeInsets.only(top: 16, left: 16, right: 16),
+                            const EdgeInsets.only(top: 12, left: 16, right: 16),
                         child: Row(
                           children: <Widget>[
                             Text(
                               _dataDoa[snapshot].idDoa.toString(),
                               style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w500),
+                                  fontSize: 14, fontWeight: FontWeight.w500),
                             ),
                             const SizedBox(
                               width: 30,
@@ -109,7 +109,7 @@ class _HomePageDoaState extends State<HomePageDoa> {
                                     child: Text(
                                       _dataDoa[snapshot].nama.toString(),
                                       style: const TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500),
                                     ),
                                   ),
@@ -122,7 +122,7 @@ class _HomePageDoaState extends State<HomePageDoa> {
                             Icon(
                               Icons.arrow_forward_ios,
                               color: Colors.grey.shade500,
-                              size: 16,
+                              size: 14,
                             ),
                           ],
                         ),

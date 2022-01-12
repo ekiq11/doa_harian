@@ -43,7 +43,7 @@ class LandingPage extends StatelessWidget {
                 padding: EdgeInsets.all(15.0),
                 child: Text(
                   'Bismillah - Mulai Baca Doa',
-                  style: TextStyle(fontSize: 16.0),
+                  style: TextStyle(fontSize: 14.0),
                 ),
               ),
             ),

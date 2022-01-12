@@ -242,9 +242,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                       textAlign: TextAlign.justify,
                                       textDirection: TextDirection.rtl,
                                       style: const TextStyle(
-                                        fontSize: 24,
+                                        fontSize: 22,
                                         fontFamily: "Utsmani",
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -255,7 +255,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   child: Text(
                                     _listAyah[index].indonesia.toString(),
                                     textAlign: TextAlign.start,
-                                    style: const TextStyle(fontSize: 16.0),
+                                    style: const TextStyle(fontSize: 15.0),
                                   ),
                                 )
                               ],

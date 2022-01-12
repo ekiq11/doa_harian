@@ -61,7 +61,7 @@ class _DetailDoaState extends State<DetailDoa> {
                   widget.lafal.toString(),
                   textAlign: TextAlign.justify,
                   textDirection: TextDirection.rtl,
-                  style: const TextStyle(fontSize: 24, fontFamily: 'Utsmani'),
+                  style: const TextStyle(fontSize: 22, fontFamily: 'Utsmani'),
                 ),
               ),
               Container(
@@ -71,7 +71,7 @@ class _DetailDoaState extends State<DetailDoa> {
                         widget.transliterasi.toString(),
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontSize: 16, fontStyle: FontStyle.italic),
+                            fontSize: 14, fontStyle: FontStyle.italic),
                       )
                     : const Text(""),
               ),
@@ -80,7 +80,7 @@ class _DetailDoaState extends State<DetailDoa> {
                 child: Text(
                   widget.arti.toString(),
                   textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 16
+                  style: const TextStyle(fontSize: 14
                       // fontStyle: FontStyle.italic,
                       ),
                 ),
@@ -97,7 +97,7 @@ class _DetailDoaState extends State<DetailDoa> {
                 child: Text(
                   widget.riwayat.toString(),
                   textAlign: TextAlign.left,
-                  style: const TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 12),
                 ),
               ),
               Container(
@@ -107,7 +107,7 @@ class _DetailDoaState extends State<DetailDoa> {
                         widget.keterangan.toString(),
                         textAlign: TextAlign.left,
                         style: const TextStyle(
-                            fontSize: 16, fontStyle: FontStyle.italic),
+                            fontSize: 14, fontStyle: FontStyle.italic),
                       )
                     : const Text(""),
               ),
