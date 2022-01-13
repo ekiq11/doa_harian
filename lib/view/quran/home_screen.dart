@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Text(
                                   "${_listTemp[index].number}",
                                   style: const TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Surat ${_listTemp[index].latin}',
+                              Text('${_listTemp[index].latin}',
                                   style: const TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600)),

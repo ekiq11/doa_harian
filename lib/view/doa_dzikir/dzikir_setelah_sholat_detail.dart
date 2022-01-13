@@ -47,9 +47,9 @@ class _DetailDzikirSetelahSholatState extends State<DetailDzikirSetelahSholat> {
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
               FlutterClipboard.copy(widget.nama.toString() +
-                      "\n" +
+                      "\n\n" +
                       widget.lafal.toString() +
-                      '\n' +
+                      '\n\n' +
                       widget.arti.toString())
                   .then((value) => print('copied'));
             },

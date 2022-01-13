@@ -227,7 +227,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   child: Text(
                                     "${index + 1}",
                                     style: const TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
