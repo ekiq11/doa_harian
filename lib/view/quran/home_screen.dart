@@ -215,20 +215,27 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "سنة",
                 style: TextStyle(
-                  fontFamily: 'Suls',
-                  fontSize: 32,
+                  fontFamily: 'Quran',
+                  fontSize: 40,
                 ),
               ),
-              Text(
+              Get.isDarkMode
+                  ? const Image(
+                      image: AssetImage('asset/icon/iconquran.png'),
+                      height: 50.0)
+                  : const Image(
+                      image: AssetImage('asset/icon/iconquran2.png'),
+                      height: 50.0),
+              const Text(
                 "القرآن",
                 style: TextStyle(
                     fontFamily: 'Quran',
-                    fontSize: 28,
-                    fontWeight: FontWeight.w600),
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500),
               ),
             ],
           ),
@@ -251,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             : renderBody(),
         floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: Colors.amber,
+          backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
           onPressed: () {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => HomeTabs()));

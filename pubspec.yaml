@@ -66,6 +66,8 @@ flutter:
     - asset/json/doa.json
     - asset/json/dzikir.json
     - asset/json/dzikir_setelah_sholat.json
+    - asset/icon/iconquran.png
+    - asset/icon/iconquran2.png
     - asset/doa.png
     - asset/other/
     - asset/image/

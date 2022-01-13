@@ -35,7 +35,7 @@ class _HomeTabsState extends State<HomeTabs>
             children: const [
               Text(
                 "سنة",
-                style: TextStyle(fontFamily: 'Suls', fontSize: 34),
+                style: TextStyle(fontFamily: 'Quran', fontSize: 40),
               ),
             ],
           ),
@@ -72,7 +72,7 @@ class _HomeTabsState extends State<HomeTabs>
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: Colors.amber,
+          backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
           onPressed: () {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => HomeScreen()));
