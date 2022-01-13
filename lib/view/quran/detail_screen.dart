@@ -111,18 +111,41 @@ class _DetailScreenState extends State<DetailScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              '${widget.surah!.arabic}',
-                              style: const TextStyle(
-                                fontFamily: 'Utsmani',
-                                fontSize: 28.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                          Get.isDarkMode
+                              ? Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: SizedBox(
+                                    height: 42,
+                                    child: Image.asset(
+                                      BaseImage.surat(
+                                          nomor: '${widget.surah!.number}'),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: SizedBox(
+                                    height: 42,
+                                    child: Image.asset(
+                                      BaseImage.surat(
+                                          nomor: '${widget.surah!.number}'),
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+                                ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: Text(
+                          //     '${widget.surah!.arabic}',
+                          //     style: const TextStyle(
+                          //       fontFamily: 'Utsmani',
+                          //       fontSize: 28.0,
+                          //       fontWeight: FontWeight.w500,
+                          //     ),
+                          //     textAlign: TextAlign.center,
+                          //   ),
+                          // ),
                           Text(
                             '${widget.surah!.latin}',
                             style: const TextStyle(

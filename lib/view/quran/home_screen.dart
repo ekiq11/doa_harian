@@ -4,6 +4,7 @@ import 'package:doa_harian/model/surah.dart';
 import 'package:doa_harian/view/quran/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:get/get.dart';
 
 import '../../tab_bar.dart';
 
@@ -157,11 +158,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       textDirection: TextDirection.rtl,
                       child: Column(
                         children: [
-                          Text(
-                            _listTemp[index].arabic.toString(),
-                            style: const TextStyle(
-                                fontFamily: "Utsmani", fontSize: 24.0),
-                          ),
+                          Get.isDarkMode
+                              ? SizedBox(
+                                  height: 32,
+                                  child: Image.asset(
+                                    BaseImage.surat(nomor: index + 1),
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : SizedBox(
+                                  height: 32,
+                                  child: Image.asset(
+                                    BaseImage.surat(nomor: index + 1),
+                                    color: Colors.black87,
+                                  ),
+                                ),
                           Text(
                             '${_listTemp[index].totalAyah} Ayat',
                             style: const TextStyle(
