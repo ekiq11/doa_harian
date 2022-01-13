@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:doa_harian/view/doa_dzikir/dzikir.dart';
 import 'package:doa_harian/view/quran/home_screen.dart';
 import 'package:doa_harian/view/search/cari.dart';
