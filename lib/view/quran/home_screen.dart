@@ -218,11 +218,17 @@ class _HomeScreenState extends State<HomeScreen> {
             children: const [
               Text(
                 "سنة",
-                style: TextStyle(fontFamily: 'Suls', fontSize: 28),
+                style: TextStyle(
+                  fontFamily: 'Suls',
+                  fontSize: 32,
+                ),
               ),
               Text(
                 "القرآن",
-                style: TextStyle(fontFamily: 'Utsmani', fontSize: 24),
+                style: TextStyle(
+                    fontFamily: 'Quran',
+                    fontSize: 28,
+                    fontWeight: FontWeight.w600),
               ),
             ],
           ),

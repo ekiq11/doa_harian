@@ -16,7 +16,7 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   List<Ayah> _listAyah = [];
-
+  bool isVisible = true;
   void mapAyah() {
     setState(() {
       _listAyah.clear();
@@ -95,11 +95,34 @@ class _DetailScreenState extends State<DetailScreen> {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                title: Text(
-                  '${widget.surah!.latin}',
-                  style: const TextStyle(
-                    fontSize: 16,
-                  ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '${widget.surah!.latin}',
+                      style: const TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          isVisible = !isVisible;
+                        });
+                      },
+                      child: Get.isDarkMode
+                          ? isVisible == true
+                              ? const Icon(Icons.visibility,
+                                  color: Colors.white)
+                              : const Icon(Icons.visibility_off,
+                                  color: Colors.white)
+                          : isVisible == false
+                              ? const Icon(Icons.visibility_off,
+                                  color: Colors.black87)
+                              : const Icon(Icons.visibility,
+                                  color: Colors.black87),
+                    ),
+                  ],
                 ),
                 elevation: 0,
                 pinned: true,
@@ -284,13 +307,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 12, bottom: 6.0, right: 8.0),
-                                  child: Text(
-                                    _listAyah[index].indonesia.toString(),
-                                    textAlign: TextAlign.start,
-                                    style: const TextStyle(fontSize: 15.0),
+                                Visibility(
+                                  visible: isVisible,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 12, bottom: 6.0, right: 8.0),
+                                    child: Text(
+                                      _listAyah[index].indonesia.toString(),
+                                      textAlign: TextAlign.start,
+                                      style: const TextStyle(fontSize: 15.0),
+                                    ),
                                   ),
                                 )
                               ],

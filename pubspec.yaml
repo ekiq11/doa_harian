@@ -93,6 +93,9 @@ flutter:
     - family: Suls
       fonts:
         - asset: asset/fonts/suls.ttf
+    - family: Quran
+      fonts:
+        - asset: asset/fonts/quran.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
