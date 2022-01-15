@@ -1,6 +1,4 @@
 import 'package:doa_harian/landing.dart';
-import 'package:doa_harian/tab_bar.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

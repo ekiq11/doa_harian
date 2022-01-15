@@ -17,9 +17,7 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   List<Ayah> _listAyah = [];
   bool isVisible = true;
-  //Play Audio
 
-//Stop
   void mapAyah() {
     setState(() {
       _listAyah.clear();
@@ -160,18 +158,6 @@ class _DetailScreenState extends State<DetailScreen> {
                                     ),
                                   ),
                                 ),
-                          // Padding(
-                          //   padding: const EdgeInsets.all(8.0),
-                          //   child: Text(
-                          //     '${widget.surah!.arabic}',
-                          //     style: const TextStyle(
-                          //       fontFamily: 'Utsmani',
-                          //       fontSize: 28.0,
-                          //       fontWeight: FontWeight.w500,
-                          //     ),
-                          //     textAlign: TextAlign.center,
-                          //   ),
-                          // ),
                           Text(
                             '${widget.surah!.latin}',
                             style: const TextStyle(
