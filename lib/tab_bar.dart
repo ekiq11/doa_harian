@@ -74,6 +74,7 @@ class _HomeTabsState extends State<HomeTabs>
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
+          heroTag: 'btn2',
           backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
           onPressed: () {
             Navigator.pushReplacement(

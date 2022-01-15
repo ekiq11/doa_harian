@@ -17,6 +17,9 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   List<Ayah> _listAyah = [];
   bool isVisible = true;
+  //Play Audio
+
+//Stop
   void mapAyah() {
     setState(() {
       _listAyah.clear();

@@ -258,6 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             : renderBody(),
         floatingActionButton: FloatingActionButton.extended(
+          heroTag: 'btn1',
           backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
           onPressed: () {
             Navigator.pushReplacement(

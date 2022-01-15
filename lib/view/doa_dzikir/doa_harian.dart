@@ -2,7 +2,6 @@ import 'package:doa_harian/model/model_doa.dart';
 import 'package:doa_harian/service/doa_service.dart';
 import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';
-
 import 'detail_doa.dart';
 
 class HomePageDoa extends StatefulWidget {
@@ -133,6 +132,7 @@ class _HomePageDoaState extends State<HomePageDoa> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FloatingActionButton(
+                      heroTag: 'btn3',
                       backgroundColor: Colors.amber,
                       onPressed: () {
                         Navigator.push(
@@ -143,6 +143,7 @@ class _HomePageDoaState extends State<HomePageDoa> {
                       child: const Icon(Icons.search),
                     ),
                     FloatingActionButton(
+                      heroTag: 'btn4',
                       onPressed: _scrollToTop,
                       child: const Icon(Icons.arrow_upward),
                       backgroundColor: Colors.amber,
