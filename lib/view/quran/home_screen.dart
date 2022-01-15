@@ -90,109 +90,113 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemCount: _listTemp.length,
-            separatorBuilder: (BuildContext context, int index) =>
-                const Padding(
-              padding: EdgeInsets.only(left: 12.0, right: 12.0),
-              child: Divider(),
-            ),
-            itemBuilder: (BuildContext ctx, int index) {
-              return ListTile(
-                title: Flex(
-                  direction: Axis.horizontal,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          margin: const EdgeInsets.only(right: 8),
-                          child: Stack(
-                            children: [
-                              SizedBox(
-                                width: 40,
-                                height: 40,
-                                child: Image.asset(
-                                  BaseImage.numbering,
-                                ),
-                              ),
-                              Center(
-                                child: Text(
-                                  "${_listTemp[index].number}",
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 4.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('${_listTemp[index].latin}',
-                                  style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600)),
-                              Text(
-                                _listTemp[index].name.toString(),
-                                style: const TextStyle(
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Column(
+          child: Scrollbar(
+            isAlwaysShown: true,
+            child: ListView.separated(
+              shrinkWrap: true,
+              itemCount: _listTemp.length,
+              separatorBuilder: (BuildContext context, int index) =>
+                  const Padding(
+                padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                child: Divider(),
+              ),
+              itemBuilder: (BuildContext ctx, int index) {
+                return ListTile(
+                  title: Flex(
+                    direction: Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
                         children: [
-                          Get.isDarkMode
-                              ? SizedBox(
-                                  height: 32,
+                          Container(
+                            width: 40,
+                            height: 40,
+                            margin: const EdgeInsets.only(right: 8),
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  width: 40,
+                                  height: 40,
                                   child: Image.asset(
-                                    BaseImage.surat(nomor: index + 1),
-                                    color: Colors.white,
-                                  ),
-                                )
-                              : SizedBox(
-                                  height: 32,
-                                  child: Image.asset(
-                                    BaseImage.surat(nomor: index + 1),
-                                    color: Colors.black87,
+                                    BaseImage.numbering,
                                   ),
                                 ),
-                          Text(
-                            '${_listTemp[index].totalAyah} Ayat',
-                            style: const TextStyle(
-                                fontSize: 12.0, fontWeight: FontWeight.normal),
-                          )
+                                Center(
+                                  child: Text(
+                                    "${_listTemp[index].number}",
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('${_listTemp[index].latin}',
+                                    style: const TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w600)),
+                                Text(
+                                  _listTemp[index].name.toString(),
+                                  style: const TextStyle(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
-                    )
-                  ],
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext c) =>
-                            DetailScreen(surah: _listTemp[index]),
-                      ));
-                },
-              );
-            },
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Column(
+                          children: [
+                            Get.isDarkMode
+                                ? SizedBox(
+                                    height: 32,
+                                    child: Image.asset(
+                                      BaseImage.surat(nomor: index + 1),
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : SizedBox(
+                                    height: 32,
+                                    child: Image.asset(
+                                      BaseImage.surat(nomor: index + 1),
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+                            Text(
+                              '${_listTemp[index].totalAyah} Ayat',
+                              style: const TextStyle(
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.normal),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext c) =>
+                              DetailScreen(surah: _listTemp[index]),
+                        ));
+                  },
+                );
+              },
+            ),
           ),
         ),
       ],

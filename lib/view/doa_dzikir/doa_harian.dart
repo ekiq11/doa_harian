@@ -46,81 +46,86 @@ class _HomePageDoaState extends State<HomePageDoa> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: ListView.builder(
-            controller: _scrollController,
-            itemCount: _dataDoa.isNotEmpty ? _dataDoa.length : 0,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, snapshot) {
-              if (snapshot != null) {
-                return Column(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailDoa(
-                                nama: _dataDoa[snapshot].nama,
-                                lafal: _dataDoa[snapshot].lafal,
-                                transliterasi: _dataDoa[snapshot].transliterasi,
-                                arti: _dataDoa[snapshot].arti,
-                                riwayat: _dataDoa[snapshot].riwayat,
-                                keterangan: _dataDoa[snapshot].keterangan),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        padding:
-                            const EdgeInsets.only(top: 12, left: 16, right: 16),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              _dataDoa[snapshot].idDoa.toString(),
-                              style: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500),
+          child: Scrollbar(
+            isAlwaysShown: true,
+            child: ListView.builder(
+              controller: _scrollController,
+              itemCount: _dataDoa.isNotEmpty ? _dataDoa.length : 0,
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, snapshot) {
+                if (snapshot != null) {
+                  return Column(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailDoa(
+                                  nama: _dataDoa[snapshot].nama,
+                                  lafal: _dataDoa[snapshot].lafal,
+                                  transliterasi:
+                                      _dataDoa[snapshot].transliterasi,
+                                  arti: _dataDoa[snapshot].arti,
+                                  riwayat: _dataDoa[snapshot].riwayat,
+                                  keterangan: _dataDoa[snapshot].keterangan),
                             ),
-                            const SizedBox(
-                              width: 30,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8.5),
-                                    child: Text(
-                                      _dataDoa[snapshot].nama.toString(),
-                                      style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          padding: const EdgeInsets.only(
+                              top: 12, left: 16, right: 16),
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                _dataDoa[snapshot].idDoa.toString(),
+                                style: const TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w500),
                               ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.grey.shade500,
-                              size: 14,
-                            ),
-                          ],
+                              const SizedBox(
+                                width: 30,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.5),
+                                      child: Text(
+                                        _dataDoa[snapshot].nama.toString(),
+                                        style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey.shade500,
+                                size: 14,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    const Divider(
-                      height: 2.0,
-                    ),
-                  ],
-                );
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            },
+                      const Divider(
+                        height: 2.0,
+                      ),
+                    ],
+                  );
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              },
+            ),
           ),
         ),
         floatingActionButton: _showBackToTopButton == false

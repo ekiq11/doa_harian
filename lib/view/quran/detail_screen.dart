@@ -215,115 +215,120 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
             ];
           },
-          body: ListView.builder(
-            itemCount: widget.surah!.totalAyah,
-            itemBuilder: (BuildContext ctx, int index) {
-              return Column(
-                children: [
-                  InkWell(
-                    onLongPress: () {
-                      // ignore: prefer_const_declarations
-                      final snackBar = const SnackBar(
-                        content: Text('Berhasil di copy'),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      FlutterClipboard.copy('Allah berfirman : ' +
-                              '\n\n' +
-                              _listAyah[index].arabic.toString() +
-                              "\n" +
-                              _listAyah[index].indonesia.toString() +
-                              '\n\n' +
-                              'QS: ${widget.surah!.latin} : ' +
-                              '${index + 1}')
-                          .then((value) => print('copied'));
-                    },
-                    onTap: () {
-                      showTafsir(context, index);
-                    },
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 18.0, left: 8.0),
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            margin: const EdgeInsets.only(right: 12),
-                            child: Stack(
-                              children: [
-                                SizedBox(
-                                  width: 40,
-                                  height: 40,
-                                  child: Image.asset(
-                                    BaseImage.numbering,
-                                  ),
-                                ),
-                                Center(
-                                  child: Text(
-                                    "${index + 1}",
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
+          body: Scrollbar(
+            isAlwaysShown: true,
+            child: ListView.builder(
+              itemCount: widget.surah!.totalAyah,
+              itemBuilder: (BuildContext ctx, int index) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onLongPress: () {
+                        // ignore: prefer_const_declarations
+                        final snackBar = const SnackBar(
+                          content: Text('Berhasil di copy'),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        FlutterClipboard.copy('Allah berfirman : ' +
+                                '\n\n' +
+                                _listAyah[index].arabic.toString() +
+                                "\n" +
+                                _listAyah[index].indonesia.toString() +
+                                '\n\n' +
+                                'QS: ${widget.surah!.latin} : ' +
+                                '${index + 1}')
+                            .then((value) => print('copied'));
+                      },
+                      onTap: () {
+                        showTafsir(context, index);
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 18.0, left: 8.0),
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              margin: const EdgeInsets.only(right: 12),
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    width: 40,
+                                    height: 40,
+                                    child: Image.asset(
+                                      BaseImage.numbering,
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(6.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 12.0, right: 8.0, bottom: 6.0),
-                                  child: Directionality(
-                                    textDirection: TextDirection.rtl,
+                                  Center(
                                     child: Text(
-                                      _listAyah[index].arabic.toString(),
-                                      textAlign: TextAlign.justify,
-                                      textDirection: TextDirection.rtl,
+                                      "${index + 1}",
                                       style: const TextStyle(
-                                        fontSize: 24,
-                                        fontFamily: "Utsmani",
+                                        fontSize: 12,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
-                                ),
-                                Visibility(
-                                  visible: isVisible,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12, bottom: 6.0, right: 8.0),
-                                    child: Text(
-                                      _listAyah[index].indonesia.toString(),
-                                      textAlign: TextAlign.start,
-                                      style: const TextStyle(fontSize: 15.0),
-                                    ),
-                                  ),
-                                )
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 12.0, right: 8.0, bottom: 6.0),
+                                    child: Directionality(
+                                      textDirection: TextDirection.rtl,
+                                      child: Text(
+                                        _listAyah[index].arabic.toString(),
+                                        textAlign: TextAlign.justify,
+                                        textDirection: TextDirection.rtl,
+                                        style: const TextStyle(
+                                          fontSize: 24,
+                                          fontFamily: "Utsmani",
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Visibility(
+                                    visible: isVisible,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 12, bottom: 6.0, right: 8.0),
+                                      child: Text(
+                                        _listAyah[index].indonesia.toString(),
+                                        textAlign: TextAlign.start,
+                                        style: const TextStyle(fontSize: 15.0),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                    child: Divider(
-                      height: 2.0,
+                    const Padding(
+                      padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                      child: Divider(
+                        height: 2.0,
+                      ),
                     ),
-                  ),
-                ],
-              );
-            },
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),
