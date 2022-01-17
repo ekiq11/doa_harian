@@ -271,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
           label: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Icon(Icons.menu_book_sharp),
+              Icon(Icons.menu_book_rounded),
               Padding(
                 padding: EdgeInsets.only(left: 12.0),
                 child: Text("Doa dan Dzikir"),

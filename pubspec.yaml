@@ -39,7 +39,7 @@ dependencies:
   colorful_safe_area: ^0.3.0
   clipboard: ^0.1.3
   hijri: ^3.0.0
-  animated_bottom_navigation_bar: ^0.3.2
+ 
 
 dev_dependencies:
   flutter_test:

@@ -82,9 +82,17 @@ class _HomeTabsState extends State<HomeTabs>
           },
           label: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Icon(Icons.menu_book_sharp),
-              Padding(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    padding: EdgeInsets.zero,
+                    child: Image.asset("asset/icon/iconquran2.png",
+                        fit: BoxFit.fitWidth, width: 35.0),
+                  ),
+                ],
+              ),
+              const Padding(
                 padding: EdgeInsets.only(left: 12.0),
                 child: Text("Al-Qur'an"),
               ),

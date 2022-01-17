@@ -54,7 +54,27 @@ class _DetailScreenState extends State<DetailScreen> {
             content: SingleChildScrollView(
               child: ListBody(
                 children: [
-                  Text(_listAyah[index].tafsir.toString()),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 12.0, right: 8.0, bottom: 6.0),
+                    child: Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Text(
+                        _listAyah[index].arabic.toString(),
+                        textAlign: TextAlign.justify,
+                        textDirection: TextDirection.rtl,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontFamily: "Utsmani",
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: Text(_listAyah[index].tafsir.toString()),
+                  ),
                 ],
               ),
             ),

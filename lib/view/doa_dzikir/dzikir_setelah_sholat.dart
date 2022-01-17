@@ -1,7 +1,7 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:doa_harian/model/model_dzikir_setelah_sholat.dart';
 import 'package:doa_harian/service/dzikir_setelah_sholat_service.dart';
 import 'package:flutter/material.dart';
-import 'detail_dzikir.dart';
 
 class DzikirSetelahSholat extends StatefulWidget {
   const DzikirSetelahSholat({Key? key}) : super(key: key);
@@ -15,24 +15,16 @@ class _DzikirSetelahSholatState extends State<DzikirSetelahSholat> {
   final ScrollController _scrollController = ScrollController();
   bool _showBackToTopButton = false;
 
-  _getData() {
+  _getData() {}
+
+  @override
+  void initState() {
+    super.initState();
     SetelahSholatService.readFile().then((dataDzikir) {
       setState(() {
         _dataDzikir = dataDzikir!;
       });
     });
-  }
-
-  _loading() {
-    for (int i = 0; i < 2; i++) {
-      _getData();
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _loading();
     _scrollController.addListener(() {
       setState(() {
         if (_scrollController.offset >= 400) {
@@ -41,11 +33,6 @@ class _DzikirSetelahSholatState extends State<DzikirSetelahSholat> {
           _showBackToTopButton = false; // hide the back-to-top button
         }
       });
-      print(_scrollController.position.pixels);
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        _loading;
-      }
     });
   }
 
@@ -72,91 +59,169 @@ class _DzikirSetelahSholatState extends State<DzikirSetelahSholat> {
           ),
         ),
         body: Center(
-          child: Column(
-            children: [
-              ListView.builder(
-                controller: _scrollController,
-                itemCount: _dataDzikir.isNotEmpty ? _dataDzikir.length : 0,
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, snapshot) {
-                  if (snapshot != null) {
-                    return Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DetailDzikir(
-                                    nama: _dataDzikir[snapshot].nama,
-                                    lafal: _dataDzikir[snapshot].lafal,
-                                    transliterasi:
-                                        _dataDzikir[snapshot].transliterasi,
-                                    arti: _dataDzikir[snapshot].arti,
-                                    riwayat: _dataDzikir[snapshot].riwayat,
-                                    keterangan:
-                                        _dataDzikir[snapshot].keterangan,
-                                    footnote: _dataDzikir[snapshot].footnote),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.only(bottom: 16),
-                            padding: const EdgeInsets.only(
-                                top: 16, left: 16, right: 16),
-                            child: Row(
-                              children: <Widget>[
-                                Text(
-                                  _dataDzikir[snapshot].idDzikir.toString(),
-                                  style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                const SizedBox(
-                                  width: 30,
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: <Widget>[
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 8.5),
-                                        child: Text(
-                                          _dataDzikir[snapshot].nama.toString(),
-                                          style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                    ],
+          child: PageView.builder(
+            itemCount: _dataDzikir.isNotEmpty ? _dataDzikir.length : 0,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, snapshot) {
+              if (snapshot != null) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onLongPress: () {
+                          // ignore: prefer_const_declarations
+                          final snackBar = const SnackBar(
+                            content: Text('Berhasil di copy'),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          FlutterClipboard.copy(
+                                  _dataDzikir[snapshot].nama.toString() +
+                                      "\n\n" +
+                                      _dataDzikir[snapshot].lafal.toString() +
+                                      '\n\n' +
+                                      _dataDzikir[snapshot].arti.toString())
+                              .then((value) => print('copied'));
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 12.0,
+                                      left: 12.0,
+                                      right: 12.0,
+                                      bottom: 8.0),
+                                  child: Text(
+                                    _dataDzikir[snapshot].nama.toString(),
+                                    textAlign: TextAlign.left,
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.grey.shade500,
-                                  size: 16,
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12.0, right: 12.00),
+                                  child:
+                                      _dataDzikir[snapshot].keterangan != null
+                                          ? Text(
+                                              _dataDzikir[snapshot]
+                                                  .keterangan
+                                                  .toString(),
+                                              textAlign: TextAlign.left,
+                                              style: const TextStyle(
+                                                  fontSize: 14.5,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          : const Divider(
+                                              height: 2.0,
+                                            ),
                                 ),
                               ],
                             ),
-                          ),
+                            _dataDzikir[snapshot].keterangan != null
+                                ? const Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 12.0, right: 12, top: 12.0),
+                                    child: Divider(
+                                      height: 2.0,
+                                    ),
+                                  )
+                                : const Padding(padding: EdgeInsets.all(0.0)),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 12.0, right: 12.0, top: 12.0),
+                              child: _dataDzikir[snapshot].lafal != null
+                                  ? Text(
+                                      _dataDzikir[snapshot].lafal.toString(),
+                                      textAlign: TextAlign.justify,
+                                      textDirection: TextDirection.rtl,
+                                      style: const TextStyle(
+                                          fontSize: 24, fontFamily: 'Utsmani'),
+                                    )
+                                  // ignore: avoid_unnecessary_containers
+                                  : Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 12, right: 12.0, top: 12.0),
+                                      child: Text(
+                                        _dataDzikir[snapshot].arti.toString(),
+                                        textAlign: TextAlign.left,
+                                        style: const TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                            ),
+                            _dataDzikir[snapshot].transliterasi != null
+                                ? Container(
+                                    margin: const EdgeInsets.all(12.0),
+                                    child: Text(
+                                      _dataDzikir[snapshot]
+                                          .transliterasi
+                                          .toString(),
+                                      textAlign: TextAlign.left,
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontStyle: FontStyle.italic),
+                                    ))
+                                : Container(
+                                    margin: const EdgeInsets.only(
+                                        top: 12.0, left: 12.0, right: 12.0),
+                                  ),
+                            _dataDzikir[snapshot].lafal != null
+                                ? Container(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Text(
+                                      _dataDzikir[snapshot].arti.toString(),
+                                      textAlign: TextAlign.left,
+                                      style: const TextStyle(fontSize: 16
+                                          // fontStyle: FontStyle.italic,
+                                          ),
+                                    ),
+                                  )
+                                : const Text(""),
+                            _dataDzikir[snapshot].footnote != null
+                                ? Container(
+                                    margin: const EdgeInsets.all(12.0),
+                                    child: Text(
+                                      _dataDzikir[snapshot].footnote.toString(),
+                                      textAlign: TextAlign.left,
+                                      style: const TextStyle(fontSize: 16),
+                                    ))
+                                : Container(),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                              child: Divider(
+                                height: 2.0,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  top: 12.0,
+                                  left: 12.0,
+                                  right: 12.0,
+                                  bottom: 12.0),
+                              child: Text(
+                                _dataDzikir[snapshot].riwayat.toString(),
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(fontSize: 14),
+                              ),
+                            ),
+                          ],
                         ),
-                        const Divider(
-                          height: 2.0,
-                        ),
-                      ],
-                    );
-                  } else {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                },
-              ),
-            ],
+                      ),
+                      const Divider(
+                        height: 2.0,
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
           ),
         ),
         floatingActionButton: _showBackToTopButton == false
