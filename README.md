@@ -1,6 +1,6 @@
 # doa_harian
 
-A new Flutter project.
+Aplikasi Alquran dan Doa Harian sesuai sunnah.
 
 ## Getting Started
 
