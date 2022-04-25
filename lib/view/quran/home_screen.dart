@@ -265,8 +265,8 @@ class _HomeScreenState extends State<HomeScreen> {
           heroTag: 'btn1',
           backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
           onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => HomeTabs()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const HomeTabs()));
           },
           label: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

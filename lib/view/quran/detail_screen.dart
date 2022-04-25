@@ -214,18 +214,36 @@ class _DetailScreenState extends State<DetailScreen> {
                               : Container(
                                   margin:
                                       const EdgeInsets.symmetric(vertical: 10),
-                                  height: 40,
-                                  child: Image.asset(BaseImage.bismillah,
-                                      color: Colors.black87),
+                                  height: widget.surah!.latin == 'At-Taubah'
+                                      ? 50
+                                      : 40,
+                                  child: widget.surah!.latin == 'At-Taubah'
+                                      ? const Text(
+                                          "اَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ",
+                                          style: TextStyle(
+                                              fontFamily: 'Quran',
+                                              fontSize: 30.0,
+                                              color: Colors.black87,
+                                              fontWeight: FontWeight.w500))
+                                      : Image.asset(
+                                          BaseImage.bismillah,
+                                          color: Colors.black87,
+                                        ),
                                 ),
-                          const Padding(
-                            padding: EdgeInsets.only(
+                          Padding(
+                            padding: const EdgeInsets.only(
                                 left: 28.0, right: 28.0, top: 12.0),
-                            child: Text(
-                              "Dengan menyebut nama Allah yang maha pengasih lagi maha penyayang",
-                              style: TextStyle(fontSize: 14),
-                              textAlign: TextAlign.center,
-                            ),
+                            child: widget.surah!.latin == 'At-Taubah'
+                                ? const Text(
+                                    "Aku berlindung kepada Allah dari godaan syaitan yang terkutuk",
+                                    style: TextStyle(fontSize: 14),
+                                    textAlign: TextAlign.center,
+                                  )
+                                : const Text(
+                                    "Dengan menyebut nama Allah yang maha pengasih lagi maha penyayang",
+                                    style: TextStyle(fontSize: 14),
+                                    textAlign: TextAlign.center,
+                                  ),
                           )
                         ],
                       ),

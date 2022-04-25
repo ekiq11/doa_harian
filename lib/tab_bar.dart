@@ -7,103 +7,89 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 
-class HomeTabs extends StatefulWidget {
-  HomeTabs({Key? key}) : super(key: key);
-
-  @override
-  _HomeTabsState createState() => _HomeTabsState();
-}
-
-class _HomeTabsState extends State<HomeTabs>
-    with SingleTickerProviderStateMixin {
-  TabController? controller;
-
-  _HomeTabsState() {
-    controller = TabController(length: 2, vsync: this);
-  }
+class HomeTabs extends StatelessWidget {
+  const HomeTabs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_conditional_assignment
-    if (controller == null) {
-      controller = TabController(length: 2, vsync: this);
-    }
-
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text(
-                "سنة",
-                style: TextStyle(fontFamily: 'Quran', fontSize: 40),
-              ),
-            ],
-          ),
-          elevation: 0,
-          actions: [
-            Padding(
-                padding: const EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Get.changeTheme(
-                        Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
-                  },
-                  child: Get.isDarkMode
-                      ? const Icon(Icons.light_mode)
-                      : const Icon(Icons.dark_mode),
-                )),
-          ],
-          bottom: TabBar(
-            tabs: const <Tab>[
-              Tab(
-                child: Text(
-                  "Doa Harian",
-                  style: TextStyle(fontSize: 16.0),
+    return DefaultTabController(
+      length: 2,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                Text(
+                  "سنة",
+                  style: TextStyle(fontFamily: 'Quran', fontSize: 40),
                 ),
-              ),
-              Tab(
-                child: Text(
-                  "Dzikir",
-                  style: TextStyle(fontSize: 16.0),
-                ),
-              ),
+              ],
+            ),
+            elevation: 0,
+            actions: [
+              Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.changeTheme(Get.isDarkMode
+                          ? ThemeData.light()
+                          : ThemeData.dark());
+                    },
+                    child: Get.isDarkMode
+                        ? const Icon(Icons.light_mode)
+                        : const Icon(Icons.dark_mode),
+                  )),
             ],
-            controller: controller,
-          ),
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          heroTag: 'btn2',
-          backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => HomeScreen()));
-          },
-          label: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    padding: EdgeInsets.zero,
-                    child: Image.asset("asset/icon/iconquran2.png",
-                        fit: BoxFit.fitWidth, width: 35.0),
+            bottom: const TabBar(
+              tabs: <Tab>[
+                Tab(
+                  child: Text(
+                    "Doa Harian",
+                    style: TextStyle(fontSize: 16.0),
                   ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 12.0),
-                child: Text("Al-Qur'an"),
-              ),
-            ],
+                ),
+                Tab(
+                  child: Text(
+                    "Dzikir",
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        body: ColorfulSafeArea(
-          child: TabBarView(
-            children: const <Widget>[SearchDoa(), Dzikir()],
-            controller: controller,
+          floatingActionButton: FloatingActionButton.extended(
+            heroTag: 'btn2',
+            backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
+            label: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.zero,
+                      child: Image.asset("asset/icon/iconquran2.png",
+                          fit: BoxFit.fitWidth, width: 35.0),
+                    ),
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 12.0),
+                  child: Text("Al-Qur'an"),
+                ),
+              ],
+            ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          body: const ColorfulSafeArea(
+            child: TabBarView(
+              children: const [SearchDoa(), Dzikir()],
+            ),
           ),
         ),
       ),
