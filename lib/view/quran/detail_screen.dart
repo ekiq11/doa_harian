@@ -218,13 +218,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                       ? 50
                                       : 40,
                                   child: widget.surah!.latin == 'At-Taubah'
-                                      ? const Text(
-                                          "اَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ",
-                                          style: TextStyle(
-                                              fontFamily: 'Quran',
-                                              fontSize: 30.0,
-                                              color: Colors.black87,
-                                              fontWeight: FontWeight.w500))
+                                      ? Image.asset(
+                                          BaseImage.taawuz,
+                                          color: Colors.black87,
+                                        )
                                       : Image.asset(
                                           BaseImage.bismillah,
                                           color: Colors.black87,
