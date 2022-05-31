@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors_in_immutables
-
 import 'package:doa_harian/view/doa_dzikir/dzikir.dart';
 import 'package:doa_harian/view/quran/home_screen.dart';
 import 'package:doa_harian/view/search/cari.dart';
@@ -18,29 +16,12 @@ class HomeTabs extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  "سنة",
-                  style: TextStyle(fontFamily: 'Quran', fontSize: 40),
-                ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('asset/doa.png', width: 70),
               ],
             ),
             elevation: 0,
-            actions: [
-              Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.changeTheme(Get.isDarkMode
-                          ? ThemeData.light()
-                          : ThemeData.dark());
-                    },
-                    child: Get.isDarkMode
-                        ? const Icon(Icons.light_mode)
-                        : const Icon(Icons.dark_mode),
-                  )),
-            ],
             bottom: const TabBar(
               tabs: <Tab>[
                 Tab(
@@ -60,10 +41,12 @@ class HomeTabs extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton.extended(
             heroTag: 'btn2',
-            backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
+            backgroundColor: Colors.amber,
+            //shadow
+
             onPressed: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
             },
             label: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +62,7 @@ class HomeTabs extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 12.0),
-                  child: Text("Al-Qur'an"),
+                  child: Text("Al-Qur'an", style: TextStyle(fontSize: 14.0)),
                 ),
               ],
             ),
@@ -88,7 +71,7 @@ class HomeTabs extends StatelessWidget {
               FloatingActionButtonLocation.centerFloat,
           body: const ColorfulSafeArea(
             child: TabBarView(
-              children: const [SearchDoa(), Dzikir()],
+              children: [SearchDoa(), Dzikir()],
             ),
           ),
         ),

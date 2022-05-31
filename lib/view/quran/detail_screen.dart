@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class DetailScreen extends StatefulWidget {
   final Surah? surah;
 
-  DetailScreen({Key? key, this.surah}) : super(key: key);
+  const DetailScreen({Key? key, this.surah}) : super(key: key);
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
@@ -48,7 +48,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             insetPadding: const EdgeInsets.all(10),
             title: Text(
-                'Tafsir Kemenag - ' + '${widget.surah!.latin} : ${index + 1}',
+                'Tafsir Kemenag - ' '${widget.surah!.latin} : ${index + 1}',
                 style: const TextStyle(
                     fontSize: 16.0, fontWeight: FontWeight.w500)),
             content: SingleChildScrollView(
@@ -251,7 +251,7 @@ class _DetailScreenState extends State<DetailScreen> {
             ];
           },
           body: Scrollbar(
-            isAlwaysShown: true,
+            thumbVisibility: true,
             child: ListView.builder(
               itemCount: widget.surah!.totalAyah,
               itemBuilder: (BuildContext ctx, int index) {
@@ -264,8 +264,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           content: Text('Berhasil di copy'),
                         );
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        FlutterClipboard.copy('Allah berfirman : ' +
-                                '\n\n' +
+                        FlutterClipboard.copy('Allah berfirman : ' '\n\n' +
                                 _listAyah[index].arabic.toString() +
                                 "\n" +
                                 _listAyah[index].indonesia.toString() +

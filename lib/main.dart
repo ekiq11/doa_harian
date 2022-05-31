@@ -2,7 +2,10 @@ import 'package:doa_harian/landing.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized(); //all widgets are rendered here
+  runApp(const MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -17,11 +20,8 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: const LandingPage(),
-      theme: ThemeData(
-        fontFamily: 'OpenSans',
-        primarySwatch: Colors.amber,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      //theme
+      theme: ThemeData.dark(),
     );
   }
 }

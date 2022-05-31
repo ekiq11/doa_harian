@@ -11,7 +11,7 @@ import '../../tab_bar.dart';
 class HomeScreen extends StatefulWidget {
   final String? title;
 
-  HomeScreen({Key? key, this.title}) : super(key: key);
+  const HomeScreen({Key? key, this.title}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Expanded(
           child: Scrollbar(
-            isAlwaysShown: true,
+            thumbVisibility: true,
             child: ListView.separated(
               shrinkWrap: true,
               itemCount: _listTemp.length,
@@ -207,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
 
-    this.loadSurah();
+    loadSurah();
   }
 
   @override
@@ -263,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
             : renderBody(),
         floatingActionButton: FloatingActionButton.extended(
           heroTag: 'btn1',
-          backgroundColor: Get.isDarkMode ? Colors.white : Colors.amber,
+          backgroundColor: Colors.amber,
           onPressed: () {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const HomeTabs()));
@@ -273,8 +273,9 @@ class _HomeScreenState extends State<HomeScreen> {
             children: const [
               Icon(Icons.menu_book_rounded),
               Padding(
-                padding: EdgeInsets.only(left: 12.0),
-                child: Text("Doa dan Dzikir"),
+                padding: EdgeInsets.only(left: 1.0),
+                child:
+                    Text("  Doa dan Dzikir", style: TextStyle(fontSize: 14.0)),
               ),
             ],
           ),

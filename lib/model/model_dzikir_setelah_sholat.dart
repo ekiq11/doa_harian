@@ -40,7 +40,7 @@ class SetelahSholat {
         arti: json["arti"],
         riwayat: json["riwayat"],
         keterangan: json["keterangan"],
-        footnote: json["footnote"] == null ? null : json["footnote"],
+        footnote: json["footnote"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -51,6 +51,6 @@ class SetelahSholat {
         "arti": arti,
         "riwayat": riwayat,
         "keterangan": keterangan,
-        "footnote": footnote == null ? null : footnote,
+        "footnote": footnote,
       };
 }

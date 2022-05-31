@@ -34,23 +34,23 @@ class Dzikir {
   factory Dzikir.fromJson(Map<String, dynamic> json) => Dzikir(
         idDzikir: json["id_dzikir"],
         nama: json["nama"],
-        lafal: json["lafal"] == null ? null : json["lafal"],
+        lafal: json["lafal"],
         transliterasi:
-            json["transliterasi"] == null ? null : json["transliterasi"],
+            json["transliterasi"],
         arti: json["arti"],
         riwayat: json["riwayat"],
-        keterangan: json["keterangan"] == null ? null : json["keterangan"],
-        footnote: json["footnote"] == null ? null : json["footnote"],
+        keterangan: json["keterangan"],
+        footnote: json["footnote"],
       );
 
   Map<String, dynamic> toJson() => {
         "id_dzikir": idDzikir,
         "nama": nama,
-        "lafal": lafal == null ? null : lafal,
-        "transliterasi": transliterasi == null ? null : transliterasi,
+        "lafal": lafal,
+        "transliterasi": transliterasi,
         "arti": arti,
         "riwayat": riwayat,
-        "keterangan": keterangan == null ? null : keterangan,
-        "footnote": footnote == null ? null : footnote,
+        "keterangan": keterangan,
+        "footnote": footnote,
       };
 }

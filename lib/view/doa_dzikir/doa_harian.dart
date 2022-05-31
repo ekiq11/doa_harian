@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:doa_harian/model/model_doa.dart';
 import 'package:doa_harian/service/doa_service.dart';
 import 'package:doa_harian/view/search/cari.dart';
@@ -47,7 +49,7 @@ class _HomePageDoaState extends State<HomePageDoa> {
       child: Scaffold(
         body: Center(
           child: Scrollbar(
-            isAlwaysShown: true,
+            thumbVisibility: true,
             child: ListView.builder(
               controller: _scrollController,
               itemCount: _dataDoa.isNotEmpty ? _dataDoa.length : 0,

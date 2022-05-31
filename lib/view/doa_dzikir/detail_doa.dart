@@ -9,7 +9,7 @@ class DetailDoa extends StatefulWidget {
   final String? riwayat;
   final String? keterangan;
 
-  DetailDoa(
+  const DetailDoa(
       {Key? key,
       this.nama,
       this.lafal,
