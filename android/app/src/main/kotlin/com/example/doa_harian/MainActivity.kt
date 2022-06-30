@@ -1,4 +1,4 @@
-package com.example.doa_harian
+package com.bekalsunnah.doa_harian
 
 import io.flutter.embedding.android.FlutterActivity
 

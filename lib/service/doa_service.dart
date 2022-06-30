@@ -6,7 +6,7 @@ class DoaServices {
     try {
       final response = await rootBundle.loadString('asset/json/doa.json');
       final List<Doa> data = doaFromJson(response);
-      print(response);
+      //print(response);
       return data;
     } catch (e) {
       return throw Exception();

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:doa_harian/model/asset.dart';
 import 'package:doa_harian/model/ayah.dart';
 import 'package:doa_harian/model/surah.dart';
@@ -54,26 +56,29 @@ class _DetailScreenState extends State<DetailScreen> {
             content: SingleChildScrollView(
               child: ListBody(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 12.0, right: 8.0, bottom: 6.0),
-                    child: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        _listAyah[index].arabic.toString(),
-                        textAlign: TextAlign.justify,
-                        textDirection: TextDirection.rtl,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontFamily: "Utsmani",
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(
+                  //       top: 12.0, right: 8.0, bottom: 6.0),
+                  //   child: Directionality(
+                  //     textDirection: TextDirection.rtl,
+                  //     child: Text(
+                  //       _listAyah[index].arabic.toString(),
+                  //       textAlign: TextAlign.justify,
+                  //       textDirection: TextDirection.rtl,
+                  //       style: const TextStyle(
+                  //         fontSize: 24,
+                  //         fontFamily: "Utsmani",
+                  //         fontWeight: FontWeight.w500,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.only(top: 12.0),
-                    child: Text(_listAyah[index].tafsir.toString()),
+                    child: Text(
+                      _listAyah[index].tafsir.toString(),
+                      style: const TextStyle(fontSize: 14.0),
+                    ),
                   ),
                 ],
               ),
@@ -82,6 +87,10 @@ class _DetailScreenState extends State<DetailScreen> {
               SizedBox(
                 height: 50.0,
                 child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.amber, // background
+                      onPrimary: Colors.black, // foreground
+                    ),
                     onPressed: () => Navigator.of(context).pop(),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -207,9 +216,18 @@ class _DetailScreenState extends State<DetailScreen> {
                               ? Container(
                                   margin:
                                       const EdgeInsets.symmetric(vertical: 10),
-                                  height: 35,
-                                  child: Image.asset(BaseImage.bismillah,
-                                      color: Colors.white),
+                                  height: widget.surah!.latin == 'At-Taubah'
+                                      ? 50
+                                      : 40,
+                                  child: widget.surah!.latin == 'At-Taubah'
+                                      ? Image.asset(
+                                          BaseImage.taawuz,
+                                          color: Colors.white,
+                                        )
+                                      : Image.asset(
+                                          BaseImage.bismillah,
+                                          color: Colors.white,
+                                        ),
                                 )
                               : Container(
                                   margin:
@@ -327,7 +345,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                         textAlign: TextAlign.justify,
                                         textDirection: TextDirection.rtl,
                                         style: const TextStyle(
-                                          fontSize: 24,
+                                          fontSize: 22,
                                           fontFamily: "Utsmani",
                                           fontWeight: FontWeight.w500,
                                         ),

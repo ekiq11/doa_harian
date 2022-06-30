@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Surah> _listSurah = [];
   final List<Surah> _listTemp = [];
   final int _totalSurah = 114;
-  double _percentage = 0;
   final TextEditingController _searchController = TextEditingController();
 
   void loadSurah() async {
@@ -30,18 +29,16 @@ class _HomeScreenState extends State<HomeScreen> {
       _loading = true;
       _listSurah.clear();
       _listTemp.clear();
-      _percentage = 0;
     });
 
     for (var i = 1; i <= _totalSurah; i++) {
       String raw =
-          await rootBundle.loadString('asset/quran-json/surah/$i.json');
+          await rootBundle.loadString('asset/quran-json/update/$i.json');
       var obj = json.decode(raw);
       var item = Surah.fromJson(obj['$i']);
 
       setState(() {
         _listTemp.add(item);
-        _percentage = (_listTemp.length / _totalSurah) * 100;
       });
     }
 

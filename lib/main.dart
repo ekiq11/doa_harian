@@ -1,9 +1,10 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:doa_harian/landing.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); //all widgets are rendered here
   runApp(const MyApp());
 }
 

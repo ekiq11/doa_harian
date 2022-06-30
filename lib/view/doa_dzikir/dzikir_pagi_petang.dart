@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison, avoid_print
+
 import 'package:clipboard/clipboard.dart';
 import 'package:doa_harian/model/model_dzikir.dart';
 import 'package:doa_harian/service/dzikir_service.dart';
@@ -135,7 +137,7 @@ class _DzikirPagiPetangState extends State<DzikirPagiPetang> {
                                   textAlign: TextAlign.justify,
                                   textDirection: TextDirection.rtl,
                                   style: const TextStyle(
-                                      fontSize: 24, fontFamily: 'Utsmani'),
+                                      fontSize: 22, fontFamily: 'Utsmani'),
                                 )
                               // ignore: avoid_unnecessary_containers
                               : Padding(

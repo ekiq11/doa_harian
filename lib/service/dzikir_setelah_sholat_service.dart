@@ -7,7 +7,7 @@ class SetelahSholatService {
       final response =
           await rootBundle.loadString('asset/json/dzikir_setelah_sholat.json');
       final List<SetelahSholat> dataDzikir = setelahSholatFromJson(response);
-      print(response);
+      // print(response);
       return dataDzikir;
     } catch (e) {
       return null;

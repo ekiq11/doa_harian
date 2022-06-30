@@ -2,7 +2,6 @@ import 'package:doa_harian/view/doa_dzikir/dzikir.dart';
 import 'package:doa_harian/view/quran/home_screen.dart';
 import 'package:doa_harian/view/search/cari.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 
 class HomeTabs extends StatelessWidget {
